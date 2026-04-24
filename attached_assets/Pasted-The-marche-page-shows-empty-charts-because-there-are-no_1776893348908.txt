@@ -1,0 +1,140 @@
+The /marche page shows empty charts because there are no 
+real transactions yet. Insert realistic demo/seed data 
+to populate the market price history for the hackathon demo.
+
+## SEED DEMO DATA
+
+Insert realistic historical transactions and price data
+for the last 90 days covering all major residus types
+in Côte d'Ivoire.
+
+Run this seed script in the database:
+
+-- Insert demo price history data
+-- Covering: last 90 days, weekly data points
+-- All major residus types with realistic CI prices
+
+INSERT INTO transactions 
+(transformateur_id, offre_id, quantity_kg, 
+ unit_price_fcfa, total_fcfa, status, created_at)
+
+-- Use existing seed user IDs (producteur + transformateur)
+-- Generate weekly data points going back 90 days
+
+Seed data per type_residu with realistic prices:
+
+'Cabosses de cacao':
+  price range: 85 – 110 FCFA/kg
+  weekly volumes: 200 – 2000 kg
+  trend: slight upward (+8% over 3 months)
+  regions: Abengourou, San Pedro, Soubré
+
+'Coques d anacarde':
+  price range: 45 – 70 FCFA/kg
+  weekly volumes: 500 – 3000 kg
+  trend: stable
+  regions: Bouaké, Korhogo, Mankono
+
+'Tiges de plantain':
+  price range: 15 – 30 FCFA/kg
+  weekly volumes: 100 – 800 kg
+  trend: slight downward
+  regions: Abidjan, San Pedro, Yamoussoukro
+
+'Coques de palmiste':
+  price range: 35 – 55 FCFA/kg
+  weekly volumes: 300 – 1500 kg
+  trend: stable with seasonal spike
+  regions: San Pedro, Soubré, Sassandra
+
+'Rafles de palmier':
+  price range: 20 – 40 FCFA/kg
+  weekly volumes: 200 – 1000 kg
+  trend: upward (+12%)
+  regions: San Pedro, Gagnoa
+
+'Feuilles de manioc':
+  price range: 10 – 25 FCFA/kg
+  weekly volumes: 50 – 400 kg
+  trend: stable
+  regions: Yamoussoukro, Bouaké, Abidjan
+
+'Bois d hévéa':
+  price range: 60 – 90 FCFA/kg
+  weekly volumes: 1000 – 5000 kg
+  trend: upward (+15%)
+  regions: Gagnoa, Divo, San Pedro
+
+Generate approximately:
+- 12 data points per type_residu (weekly × 12 weeks)
+- 3-5 different regions per type
+- Slight price variation week to week (±5-8%)
+- Volume variation (±20-30% week to week)
+- Status: all 'confirmée'
+
+## FIX MARKET PAGE DISPLAY
+
+Also fix these display issues on /marche:
+
+1. When no data: show realistic placeholder message:
+   Instead of "Pas encore assez de données"
+   Show:
+   "📊 Les données de marché s'enrichissent 
+    à chaque transaction. Revenez bientôt 
+    ou explorez d'autres types de résidus."
+   + "Voir toutes les offres" button
+
+2. KPI cards — fix empty state:
+   When values are null/undefined:
+   Show "0 FCFA" instead of "—"
+   Or show skeleton loader while fetching
+
+3. Fix "Man" in région dropdown:
+   "Man" should not be a region option.
+   Replace full region list with:
+   'Toutes les régions' (default)
+   'Abidjan' | 'San Pedro' | 'Abengourou' |
+   'Bouaké' | 'Korhogo' | 'Yamoussoukro' |
+   'Soubré' | 'Gagnoa' | 'Divo' | 'Sassandra' |
+   'Mankono' | 'Daloa' | 'Autre'
+
+4. Add market insights below chart:
+   Auto-generated text based on data:
+   
+   If price trend > +5%:
+   "📈 Le prix des [type_residu] est en hausse 
+    de [X]% ce mois. C'est le bon moment 
+    pour vendre votre stock."
+   
+   If price trend < -5%:
+   "📉 Le prix des [type_residu] est en baisse 
+    de [X]%. Les acheteurs peuvent négocier 
+    de bonnes conditions."
+   
+   If trend stable:
+   "➡️ Le prix des [type_residu] est stable 
+    sur la période. [Volume] kg échangés 
+    sur [X] transactions."
+
+5. Add "Prix du marché actuel" reference card:
+   Summary table showing current avg price 
+   for ALL types at once:
+   
+   | Type résidu      | Prix moy. | Variation | 
+   | Cabosses cacao   | 95 FCFA   | ↑ +8%    |
+   | Coques anacarde  | 58 FCFA   | → stable  |
+   | Tiges plantain   | 22 FCFA   | ↓ -3%    |
+   | Coques palmiste  | 45 FCFA   | → stable  |
+   | Bois d'hévéa     | 75 FCFA   | ↑ +15%   |
+   
+   Visible even before selecting a specific type.
+   Click on a row → filters chart to that type.
+
+6. Chart improvements:
+   - Show data points as dots on the line
+   - Tooltip: show date + price + volume + 
+     nb transactions
+   - Add reference line: "Prix actuel des offres"
+     (avg of active offer prices, dashed gray line)
+   - Y axis: format as "X FCFA"
+   - X axis: format as "15 jan" "22 jan" etc.

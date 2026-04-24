@@ -1,0 +1,1862 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: AgroLoopCI API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: auth
+    description: Authentication
+  - name: offres
+    description: Residue offers
+  - name: transactions
+    description: Transactions
+  - name: stats
+    description: Public statistics
+  - name: messaging
+    description: Real-time messaging
+
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /auth/register:
+    post:
+      operationId: registerUser
+      tags: [auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterBody"
+      responses:
+        "201":
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Email already exists
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/login:
+    post:
+      operationId: loginUser
+      tags: [auth]
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginBody"
+      responses:
+        "200":
+          description: Logged in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/me:
+    get:
+      operationId: getMe
+      tags: [auth]
+      summary: Get current user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /offres:
+    get:
+      operationId: listOffres
+      tags: [offres]
+      summary: List available offers
+      parameters:
+        - name: type_residu
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: region
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: status
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: search
+          in: query
+          schema:
+            type: ["string", "null"]
+        - name: price_min
+          in: query
+          schema:
+            type: ["integer", "null"]
+        - name: price_max
+          in: query
+          schema:
+            type: ["integer", "null"]
+        - name: prix_min
+          in: query
+          schema:
+            type: ["integer", "null"]
+        - name: prix_max
+          in: query
+          schema:
+            type: ["integer", "null"]
+        - name: lat
+          in: query
+          schema:
+            type: ["number", "null"]
+        - name: lng
+          in: query
+          schema:
+            type: ["number", "null"]
+        - name: radius_km
+          in: query
+          schema:
+            type: ["integer", "null"]
+            minimum: 1
+            maximum: 500
+        - name: disponibilite
+          in: query
+          schema:
+            type: ["string", "null"]
+            enum: [immediate, planifiee, null]
+        - name: livraison_possible
+          in: query
+          schema:
+            type: ["boolean", "null"]
+        - name: sort_by
+          in: query
+          schema:
+            type: ["string", "null"]
+            enum: [date, prix_asc, prix_desc, distance, null]
+      responses:
+        "200":
+          description: List of offers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OffreWithSeller"
+    post:
+      operationId: createOffre
+      tags: [offres]
+      summary: Create a new offer (producteur only)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateOffreBody"
+      responses:
+        "201":
+          description: Offer created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Offre"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /offres/map:
+    get:
+      operationId: getOffresMap
+      tags: [offres]
+      summary: Get all available offers with coordinates for map display
+      responses:
+        "200":
+          description: List of offers with coordinates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OffreMapPoint"
+
+  /offres/mes-offres:
+    get:
+      operationId: getMesOffres
+      tags: [offres]
+      summary: Get my offers (producteur only)
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: My offers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Offre"
+
+  /offres/{id}:
+    get:
+      operationId: getOffre
+      tags: [offres]
+      summary: Get a single offer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Offer details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OffreWithSeller"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    put:
+      operationId: updateOffre
+      tags: [offres]
+      summary: Update an offer (owner only)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateOffreBody"
+      responses:
+        "200":
+          description: Updated offer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Offre"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    delete:
+      operationId: deleteOffre
+      tags: [offres]
+      summary: Delete an offer (owner only)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /transactions:
+    post:
+      operationId: createTransaction
+      tags: [transactions]
+      summary: Create a transaction (transformateur only)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTransactionBody"
+      responses:
+        "201":
+          description: Transaction created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /transactions/mes-achats:
+    get:
+      operationId: getMesAchats
+      tags: [transactions]
+      summary: Get my purchases (transformateur only)
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: My purchases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TransactionWithDetails"
+
+  /transactions/mes-ventes:
+    get:
+      operationId: getMesVentes
+      tags: [transactions]
+      summary: Get my sales (producteur only)
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: My sales
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TransactionWithDetails"
+
+  /stats:
+    get:
+      operationId: getStats
+      tags: [stats]
+      summary: Get public platform statistics
+      responses:
+        "200":
+          description: Platform stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlatformStats"
+
+  /dashboard/producteur:
+    get:
+      operationId: getDashboardProducteur
+      tags: [offres]
+      summary: Get producteur dashboard summary
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardProducteur"
+
+  /conversations:
+    get:
+      operationId: listConversations
+      tags: [messaging]
+      summary: List my conversations
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Conversations list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ConversationWithDetails"
+    post:
+      operationId: createConversation
+      tags: [messaging]
+      summary: Start a conversation about an offer
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateConversationBody"
+      responses:
+        "200":
+          description: Conversation (existing or new)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConversationWithDetails"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /conversations/{id}/messages:
+    get:
+      operationId: listMessages
+      tags: [messaging]
+      summary: Get messages in a conversation (paginated)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        "200":
+          description: Messages page
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessagesPage"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /messages/{id}/read:
+    put:
+      operationId: markMessageRead
+      tags: [messaging]
+      summary: Mark a message as read
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Marked as read
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /transactions/{id}/confirm:
+    put:
+      operationId: confirmTransaction
+      tags: [transactions]
+      summary: Mark a transaction as confirmed (seller only)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Confirmed transaction
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /ratings:
+    post:
+      operationId: createRating
+      tags: [ratings]
+      summary: Submit a rating after a confirmed transaction
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRatingBody"
+      responses:
+        "201":
+          description: Rating submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rating"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Already rated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /ratings/user/{userId}:
+    get:
+      operationId: getUserRatings
+      tags: [ratings]
+      summary: Get all ratings received by a user (public)
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Ratings list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RatingWithReviewer"
+
+  /ratings/pending:
+    get:
+      operationId: getPendingRatings
+      tags: [ratings]
+      summary: Get my confirmed transactions awaiting my rating
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Pending ratings list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PendingRatingItem"
+
+  /users/me:
+    put:
+      operationId: updateMe
+      tags: [users]
+      summary: Update own profile
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateMeBody"
+      responses:
+        "200":
+          description: Updated user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "401":
+          description: Not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /users/avatar:
+    post:
+      operationId: uploadAvatar
+      tags: [users]
+      summary: Upload avatar (base64 data URL, ~2MB max)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AvatarUploadBody"
+      responses:
+        "200":
+          description: Uploaded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AvatarUploadResponse"
+        "400":
+          description: Invalid image
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /verification/status:
+    get:
+      operationId: getVerificationStatus
+      tags: [verification]
+      summary: Get current user's verification request and documents
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Verification status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerificationStatusResponse"
+
+  /verification/submit:
+    post:
+      operationId: submitVerification
+      tags: [verification]
+      summary: Submit a verification request with documents
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VerificationSubmitBody"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerificationRequestSummary"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: A pending request already exists
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /verification/cancel:
+    delete:
+      operationId: cancelVerification
+      tags: [verification]
+      summary: Cancel current pending verification
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Canceled
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
+          description: No pending request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /admin/verifications:
+    get:
+      operationId: adminListVerifications
+      tags: [verification]
+      summary: List verification requests (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: status
+          in: query
+          schema: { type: string }
+        - name: level
+          in: query
+          schema: { type: string }
+        - name: role
+          in: query
+          schema: { type: string }
+        - name: page
+          in: query
+          schema: { type: integer }
+      responses:
+        "200":
+          description: List
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminVerificationListResponse"
+
+  /admin/verifications/{requestId}:
+    get:
+      operationId: adminGetVerification
+      tags: [verification]
+      summary: Get full request detail (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        "200":
+          description: Detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminVerificationDetail"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /admin/verifications/{requestId}/approve:
+    put:
+      operationId: adminApproveVerification
+      tags: [verification]
+      summary: Approve verification request (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminApproveBody"
+      responses:
+        "200":
+          description: Approved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+
+  /admin/verifications/{requestId}/reject:
+    put:
+      operationId: adminRejectVerification
+      tags: [verification]
+      summary: Reject verification request (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminRejectBody"
+      responses:
+        "200":
+          description: Rejected
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+
+  /users/{userId}/profile:
+    get:
+      operationId: getUserProfile
+      tags: [users]
+      summary: Public profile (rating summary, stats, reviews)
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /dashboard/transformateur:
+    get:
+      operationId: getDashboardTransformateur
+      tags: [transactions]
+      summary: Get transformateur dashboard summary
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardTransformateur"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum: [producteur, transformateur, admin]
+        phone:
+          type: ["string", "null"]
+        region:
+          type: ["string", "null"]
+        avatarUrl:
+          type: ["string", "null"]
+        bio:
+          type: ["string", "null"]
+        filieres:
+          type: array
+          items:
+            type: string
+        ratingAvg:
+          type: number
+        ratingCount:
+          type: integer
+        createdAt:
+          type: string
+      required:
+        - id
+        - name
+        - email
+        - role
+        - filieres
+        - ratingAvg
+        - ratingCount
+        - createdAt
+
+    RegisterBody:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+          enum: [producteur, transformateur]
+        phone:
+          type: ["string", "null"]
+        region:
+          type: ["string", "null"]
+      required:
+        - name
+        - email
+        - password
+        - role
+
+    LoginBody:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - email
+        - password
+
+    AuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+      required:
+        - token
+        - user
+
+    Offre:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        typeResidu:
+          type: string
+        quantityKg:
+          type: integer
+        priceFcfa:
+          type: integer
+        latitude:
+          type: ["number", "null"]
+        longitude:
+          type: ["number", "null"]
+        region:
+          type: string
+        description:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [disponible, vendu, expiré]
+        livraisonPossible:
+          type: boolean
+        createdAt:
+          type: string
+      required:
+        - id
+        - userId
+        - typeResidu
+        - quantityKg
+        - priceFcfa
+        - region
+        - status
+        - createdAt
+
+    OffreWithSeller:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        sellerId:
+          type: integer
+        typeResidu:
+          type: string
+        quantityKg:
+          type: integer
+        priceFcfa:
+          type: integer
+        latitude:
+          type: ["number", "null"]
+        longitude:
+          type: ["number", "null"]
+        region:
+          type: string
+        description:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [disponible, vendu, expiré]
+        createdAt:
+          type: string
+        sellerName:
+          type: string
+        sellerPhone:
+          type: ["string", "null"]
+        sellerRatingAvg:
+          type: number
+        sellerRatingCount:
+          type: integer
+        disponibilite:
+          type: string
+          enum: [immediate, planifiee]
+        dateDisponibilite:
+          type: ["string", "null"]
+        distanceKm:
+          type: ["number", "null"]
+        livraisonPossible:
+          type: boolean
+      required:
+        - id
+        - userId
+        - sellerId
+        - typeResidu
+        - quantityKg
+        - priceFcfa
+        - region
+        - status
+        - createdAt
+        - sellerName
+        - sellerRatingAvg
+        - sellerRatingCount
+        - disponibilite
+
+    OffreMapPoint:
+      type: object
+      properties:
+        id:
+          type: integer
+        typeResidu:
+          type: string
+        quantityKg:
+          type: integer
+        priceFcfa:
+          type: integer
+        region:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        sellerName:
+          type: string
+        sellerPhone:
+          type: ["string", "null"]
+        livraisonPossible:
+          type: boolean
+      required:
+        - id
+        - typeResidu
+        - quantityKg
+        - priceFcfa
+        - region
+        - latitude
+        - longitude
+        - sellerName
+
+    CreateOffreBody:
+      type: object
+      properties:
+        typeResidu:
+          type: string
+        quantityKg:
+          type: integer
+        priceFcfa:
+          type: integer
+        region:
+          type: string
+        description:
+          type: ["string", "null"]
+        latitude:
+          type: ["number", "null"]
+        longitude:
+          type: ["number", "null"]
+        disponibilite:
+          type: ["string", "null"]
+          enum: [immediate, planifiee, null]
+        dateDisponibilite:
+          type: ["string", "null"]
+        livraisonPossible:
+          type: ["boolean", "null"]
+      required:
+        - typeResidu
+        - quantityKg
+        - priceFcfa
+        - region
+
+    UpdateOffreBody:
+      type: object
+      properties:
+        typeResidu:
+          type: ["string", "null"]
+        quantityKg:
+          type: ["integer", "null"]
+        priceFcfa:
+          type: ["integer", "null"]
+        region:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        status:
+          type: ["string", "null"]
+          enum: [disponible, vendu, expiré, null]
+        latitude:
+          type: ["number", "null"]
+        longitude:
+          type: ["number", "null"]
+
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        residuId:
+          type: integer
+        buyerId:
+          type: integer
+        sellerId:
+          type: integer
+        quantityKg:
+          type: integer
+        totalFcfa:
+          type: integer
+        status:
+          type: string
+          enum: [en_attente, confirmée, annulée]
+        createdAt:
+          type: string
+      required:
+        - id
+        - residuId
+        - buyerId
+        - sellerId
+        - quantityKg
+        - totalFcfa
+        - status
+        - createdAt
+
+    TransactionWithDetails:
+      type: object
+      properties:
+        id:
+          type: integer
+        residuId:
+          type: integer
+        buyerId:
+          type: integer
+        sellerId:
+          type: integer
+        quantityKg:
+          type: integer
+        totalFcfa:
+          type: integer
+        status:
+          type: string
+          enum: [en_attente, confirmée, annulée]
+        createdAt:
+          type: string
+        typeResidu:
+          type: string
+        region:
+          type: string
+        sellerName:
+          type: string
+        buyerName:
+          type: string
+      required:
+        - id
+        - residuId
+        - buyerId
+        - sellerId
+        - quantityKg
+        - totalFcfa
+        - status
+        - createdAt
+        - typeResidu
+        - region
+        - sellerName
+        - buyerName
+
+    CreateTransactionBody:
+      type: object
+      properties:
+        residuId:
+          type: integer
+        quantityKg:
+          type: integer
+      required:
+        - residuId
+        - quantityKg
+
+    PlatformStats:
+      type: object
+      properties:
+        totalKgValorise:
+          type: integer
+        totalUtilisateurs:
+          type: integer
+        co2Evite:
+          type: number
+        totalOffres:
+          type: integer
+        totalTransactions:
+          type: integer
+      required:
+        - totalKgValorise
+        - totalUtilisateurs
+        - co2Evite
+        - totalOffres
+        - totalTransactions
+
+    DashboardProducteur:
+      type: object
+      properties:
+        totalKgOffert:
+          type: integer
+        totalFcfaGagne:
+          type: integer
+        offresActives:
+          type: integer
+        offresVendues:
+          type: integer
+        recentOffres:
+          type: array
+          items:
+            $ref: "#/components/schemas/Offre"
+      required:
+        - totalKgOffert
+        - totalFcfaGagne
+        - offresActives
+        - offresVendues
+        - recentOffres
+
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+        conversationId:
+          type: integer
+        senderId:
+          type: integer
+        content:
+          type: string
+        readAt:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+      required:
+        - id
+        - conversationId
+        - senderId
+        - content
+        - createdAt
+
+    MessagesPage:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            $ref: "#/components/schemas/Message"
+        page:
+          type: integer
+        hasMore:
+          type: boolean
+      required:
+        - messages
+        - page
+        - hasMore
+
+    ConversationWithDetails:
+      type: object
+      properties:
+        id:
+          type: integer
+        offerId:
+          type: integer
+        producteurId:
+          type: integer
+        transformateurId:
+          type: integer
+        createdAt:
+          type: string
+        offerTitle:
+          type: string
+        otherPartyName:
+          type: string
+        otherPartyId:
+          type: integer
+        otherPartyRatingAvg:
+          type: number
+        otherPartyRatingCount:
+          type: integer
+        lastMessage:
+          type: ["string", "null"]
+        lastMessageAt:
+          type: ["string", "null"]
+        unreadCount:
+          type: integer
+      required:
+        - id
+        - offerId
+        - producteurId
+        - transformateurId
+        - createdAt
+        - offerTitle
+        - otherPartyName
+        - otherPartyId
+        - otherPartyRatingAvg
+        - otherPartyRatingCount
+        - unreadCount
+
+    CreateConversationBody:
+      type: object
+      properties:
+        offerId:
+          type: integer
+      required:
+        - offerId
+
+    Rating:
+      type: object
+      properties:
+        id:
+          type: integer
+        transactionId:
+          type: integer
+        reviewerId:
+          type: integer
+        revieweeId:
+          type: integer
+        stars:
+          type: integer
+        comment:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+      required:
+        - id
+        - transactionId
+        - reviewerId
+        - revieweeId
+        - stars
+        - createdAt
+
+    RatingWithReviewer:
+      type: object
+      properties:
+        id:
+          type: integer
+        transactionId:
+          type: integer
+        reviewerId:
+          type: integer
+        revieweeId:
+          type: integer
+        stars:
+          type: integer
+        comment:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+        reviewerName:
+          type: string
+        offerTitle:
+          type: string
+      required:
+        - id
+        - transactionId
+        - reviewerId
+        - revieweeId
+        - stars
+        - createdAt
+        - reviewerName
+        - offerTitle
+
+    CreateRatingBody:
+      type: object
+      properties:
+        transactionId:
+          type: integer
+        stars:
+          type: integer
+          minimum: 1
+          maximum: 5
+        comment:
+          type: ["string", "null"]
+      required:
+        - transactionId
+        - stars
+
+    PendingRatingItem:
+      type: object
+      properties:
+        transactionId:
+          type: integer
+        otherPartyId:
+          type: integer
+        otherPartyName:
+          type: string
+        offerTitle:
+          type: string
+        quantityKg:
+          type: integer
+        totalFcfa:
+          type: integer
+        confirmedAt:
+          type: string
+      required:
+        - transactionId
+        - otherPartyId
+        - otherPartyName
+        - offerTitle
+        - quantityKg
+        - totalFcfa
+        - confirmedAt
+
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        role:
+          type: string
+          enum: [producteur, transformateur, admin]
+        region:
+          type: ["string", "null"]
+        bio:
+          type: ["string", "null"]
+        avatarUrl:
+          type: ["string", "null"]
+        filieres:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+        ratingAvg:
+          type: number
+        ratingCount:
+          type: integer
+        totalKgTraded:
+          type: integer
+        totalTransactions:
+          type: integer
+        totalOffresPubliees:
+          type: integer
+        totalResidusTypes:
+          type: integer
+        activeOffres:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProfileActiveOffre"
+        ratings:
+          type: array
+          items:
+            $ref: "#/components/schemas/RatingWithReviewer"
+      required:
+        - id
+        - name
+        - role
+        - filieres
+        - createdAt
+        - ratingAvg
+        - ratingCount
+        - totalKgTraded
+        - totalTransactions
+        - totalOffresPubliees
+        - totalResidusTypes
+        - activeOffres
+        - ratings
+
+    ProfileActiveOffre:
+      type: object
+      properties:
+        id:
+          type: integer
+        typeResidu:
+          type: string
+        quantityKg:
+          type: integer
+        priceFcfa:
+          type: integer
+        region:
+          type: ["string", "null"]
+      required:
+        - id
+        - typeResidu
+        - quantityKg
+        - priceFcfa
+
+    UpdateMeBody:
+      type: object
+      properties:
+        name:
+          type: string
+        bio:
+          type: ["string", "null"]
+        region:
+          type: ["string", "null"]
+        phone:
+          type: ["string", "null"]
+        filieres:
+          type: array
+          items:
+            type: string
+        avatarUrl:
+          type: ["string", "null"]
+
+    AvatarUploadBody:
+      type: object
+      properties:
+        dataUrl:
+          type: string
+          description: Base64 data URL (image/*), max ~2MB
+      required:
+        - dataUrl
+
+    AvatarUploadResponse:
+      type: object
+      properties:
+        avatarUrl:
+          type: string
+      required:
+        - avatarUrl
+
+    DashboardTransformateur:
+      type: object
+      properties:
+        totalKgAchete:
+          type: integer
+        totalFcfaDepense:
+          type: integer
+        transactionsEnCours:
+          type: integer
+        transactionsConfirmees:
+          type: integer
+        recentTransactions:
+          type: array
+          items:
+            $ref: "#/components/schemas/TransactionWithDetails"
+      required:
+        - totalKgAchete
+        - totalFcfaDepense
+        - transactionsEnCours
+        - transactionsConfirmees
+        - recentTransactions
+
+    VerificationDocumentDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        documentType:
+          type: string
+        fileName:
+          type: string
+        fileUrl:
+          type: string
+        uploadedAt:
+          type: string
+      required:
+        - id
+        - documentType
+        - fileName
+        - fileUrl
+        - uploadedAt
+
+    VerificationRequestSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        level:
+          type: string
+        status:
+          type: string
+        rejectionReason:
+          type: ["string", "null"]
+        reviewedAt:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+      required:
+        - id
+        - userId
+        - level
+        - status
+        - createdAt
+
+    VerificationStatusResponse:
+      type: object
+      properties:
+        verificationStatus:
+          type: string
+        verificationLevel:
+          type: integer
+        verifiedAt:
+          type: ["string", "null"]
+        currentRequest:
+          oneOf:
+            - $ref: "#/components/schemas/VerificationRequestSummary"
+            - type: "null"
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/VerificationDocumentDto"
+      required:
+        - verificationStatus
+        - verificationLevel
+        - documents
+
+    VerificationDocumentInput:
+      type: object
+      properties:
+        documentType:
+          type: string
+        fileName:
+          type: string
+        dataUrl:
+          type: string
+      required:
+        - documentType
+        - fileName
+        - dataUrl
+
+    VerificationSubmitBody:
+      type: object
+      properties:
+        level:
+          type: string
+          enum: [identite, professionnel]
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/VerificationDocumentInput"
+      required:
+        - level
+        - documents
+
+    AdminVerificationListItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        userName:
+          type: string
+        userEmail:
+          type: string
+        userRole:
+          type: string
+        level:
+          type: string
+        status:
+          type: string
+        documentCount:
+          type: integer
+        createdAt:
+          type: string
+      required:
+        - id
+        - userId
+        - userName
+        - userEmail
+        - userRole
+        - level
+        - status
+        - documentCount
+        - createdAt
+
+    AdminVerificationListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/AdminVerificationListItem"
+        total:
+          type: integer
+        pendingCount:
+          type: integer
+      required:
+        - items
+        - total
+        - pendingCount
+
+    AdminVerificationDetail:
+      type: object
+      properties:
+        request:
+          $ref: "#/components/schemas/VerificationRequestSummary"
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/VerificationDocumentDto"
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            email:
+              type: string
+            role:
+              type: string
+            phone:
+              type: ["string", "null"]
+            region:
+              type: ["string", "null"]
+            verificationStatus:
+              type: string
+            verificationLevel:
+              type: integer
+          required:
+            - id
+            - name
+            - email
+            - role
+      required:
+        - request
+        - documents
+        - user
+
+    AdminApproveBody:
+      type: object
+      properties:
+        level:
+          type: string
+          enum: [identite, professionnel]
+      required:
+        - level
+
+    AdminRejectBody:
+      type: object
+      properties:
+        reason:
+          type: string
+      required:
+        - reason
+
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+      required:
+        - success

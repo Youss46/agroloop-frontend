@@ -1,0 +1,174 @@
+My AgroLoopCI app is already built in Replit. I need you to configure it for production deployment on Railway with the custom domain agroloopci.ci. Do NOT touch any existing feature or logic — only apply the configuration changes below.
+
+---
+
+## 1. vite.config.js (inside /client folder)
+
+Replace or update the file with:
+
+```js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: '../server/public',
+    emptyOutDir: true,
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      }
+    }
+  }
+});
+```
+
+---
+
+## 2. server/index.js
+
+At the very bottom of the file, AFTER all API routes and middleware, add this block:
+
+```js
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve React frontend in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'public')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
+}
+```
+
+If the file already uses CommonJS (require/module.exports instead of import/export), use this version instead:
+
+```js
+const path = require('path');
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'public')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
+}
+```
+
+---
+
+## 3. package.json (root level)
+
+Make sure the root package.json has exactly these scripts. Do not remove existing scripts, only add or update these:
+
+```json
+"scripts": {
+  "dev": "concurrently \"npm run server\" \"npm run client\"",
+  "server": "node server/index.js",
+  "client": "cd client && npm run dev",
+  "build": "cd client && npm install && npm run build",
+  "start": "NODE_ENV=production node server/index.js"
+}
+```
+
+Also make sure these packages are in dependencies (add them if missing):
+
+```json
+"dependencies": {
+  "concurrently": "^8.0.0",
+  "dotenv": "^16.0.0"
+}
+```
+
+Then run: `npm install`
+
+---
+
+## 4. .replit file (create or update at root)
+
+```toml
+run = "npm run dev"
+
+[deployment]
+run = ["sh", "-c", "npm run build && npm start"]
+build = ["sh", "-c", "npm run build"]
+```
+
+---
+
+## 5. .gitignore (create or update at root)
+
+Make sure these entries exist in .gitignore:
+
+```
+node_modules/
+client/node_modules/
+server/public/
+.env
+*.log
+dist/
+```
+
+---
+
+## 6. railway.json (create at root)
+
+Create a new file called railway.json at the root:
+
+```json
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "npm run build"
+  },
+  "deploy": {
+    "startCommand": "npm start",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 3
+  }
+}
+```
+
+---
+
+## 7. Verify the PORT in server/index.js
+
+Make sure the server listens on the PORT environment variable, not a hardcoded port:
+
+```js
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+```
+
+---
+
+## 8. After all changes, test the production build
+
+Run these commands in the Shell one by one and confirm each works:
+
+```bash
+# Step 1 — install dependencies
+npm install
+
+# Step 2 — build the frontend
+npm run build
+
+# Step 3 — check that server/public/index.html was created
+ls server/public/
+
+# Step 4 — test production mode locally
+NODE_ENV=production npm start
+```
+
+If server/public/index.html exists and the app runs in production mode → configuration is complete and ready for Railway deployment.
+
+Report any errors you encounter during each step.

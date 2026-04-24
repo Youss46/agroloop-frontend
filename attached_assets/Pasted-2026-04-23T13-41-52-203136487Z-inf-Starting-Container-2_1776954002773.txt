@@ -1,0 +1,1002 @@
+2026-04-23T13:41:52.203136487Z [inf]  Starting Container
+2026-04-23T13:41:52.469644770Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:52.469648664Z [err]    throw new Error(
+2026-04-23T13:41:52.469652611Z [err]          ^
+2026-04-23T13:41:52.469656603Z [err]  
+2026-04-23T13:41:52.469660258Z [err]  
+2026-04-23T13:41:52.469663574Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:52.469666399Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:52.469669436Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:52.469672402Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:52.469675488Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:52.469678523Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:52.469681434Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:52.469684630Z [err]  
+2026-04-23T13:41:52.469687802Z [err]  Node.js v20.18.1
+2026-04-23T13:41:53.455436227Z [err]  
+2026-04-23T13:41:53.455440015Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:53.455442178Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:53.455444803Z [err]  Node.js v20.18.1
+2026-04-23T13:41:53.455448660Z [err]    throw new Error(
+2026-04-23T13:41:53.455448848Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:53.455453761Z [err]          ^
+2026-04-23T13:41:53.455457495Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:53.455459952Z [err]  
+2026-04-23T13:41:53.455465703Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:53.455466489Z [err]  
+2026-04-23T13:41:53.455470006Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:53.455473426Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:53.455476522Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:54.463095350Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:54.463099068Z [err]    throw new Error(
+2026-04-23T13:41:54.463102670Z [err]          ^
+2026-04-23T13:41:54.463106698Z [err]  
+2026-04-23T13:41:54.463110244Z [err]  
+2026-04-23T13:41:54.463113665Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:54.463117409Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:54.463121056Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:54.463124696Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:54.463128362Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:54.463132297Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:54.463136582Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:54.463140599Z [err]  
+2026-04-23T13:41:54.463144309Z [err]  Node.js v20.18.1
+2026-04-23T13:41:55.606343563Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:55.606349734Z [err]    throw new Error(
+2026-04-23T13:41:55.606354180Z [err]          ^
+2026-04-23T13:41:55.606357468Z [err]  
+2026-04-23T13:41:55.606361151Z [err]  
+2026-04-23T13:41:55.606365820Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:55.606369129Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:55.606372336Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:55.606375560Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:55.606378754Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:55.606382207Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:55.606385259Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:55.606388283Z [err]  
+2026-04-23T13:41:55.606391237Z [err]  Node.js v20.18.1
+2026-04-23T13:41:56.664220237Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:56.664227292Z [err]    throw new Error(
+2026-04-23T13:41:56.664231295Z [err]          ^
+2026-04-23T13:41:56.664237047Z [err]  
+2026-04-23T13:41:56.664241365Z [err]  
+2026-04-23T13:41:56.664245027Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:56.664249344Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:56.664252468Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:56.664255631Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:56.664258911Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:56.664262176Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:56.664265191Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:56.664268307Z [err]  
+2026-04-23T13:41:56.664273371Z [err]  Node.js v20.18.1
+2026-04-23T13:41:57.683825303Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:57.683831093Z [err]    throw new Error(
+2026-04-23T13:41:57.683834609Z [err]          ^
+2026-04-23T13:41:57.684114415Z [err]  
+2026-04-23T13:41:57.684119483Z [err]  
+2026-04-23T13:41:57.684123118Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:57.684126393Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:57.684129335Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:57.684132513Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:57.684135594Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:57.684139776Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:57.684142713Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:57.684146680Z [err]  
+2026-04-23T13:41:57.684152173Z [err]  Node.js v20.18.1
+2026-04-23T13:41:58.648761390Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:58.648767173Z [err]    throw new Error(
+2026-04-23T13:41:58.649125494Z [err]          ^
+2026-04-23T13:41:58.649133682Z [err]  
+2026-04-23T13:41:58.649138888Z [err]  
+2026-04-23T13:41:58.649143686Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:58.649148446Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:58.649152804Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:58.649157059Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:58.649162545Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:58.649166808Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:58.649171529Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:58.649175781Z [err]  
+2026-04-23T13:41:58.649180450Z [err]  Node.js v20.18.1
+2026-04-23T13:41:59.629537331Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:41:59.629543171Z [err]    throw new Error(
+2026-04-23T13:41:59.629547307Z [err]          ^
+2026-04-23T13:41:59.629552473Z [err]  
+2026-04-23T13:41:59.629556430Z [err]  
+2026-04-23T13:41:59.629562319Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:41:59.629566226Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:41:59.629570274Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:41:59.629575321Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:41:59.629579834Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:41:59.629583936Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:41:59.629587260Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:41:59.629590747Z [err]  
+2026-04-23T13:41:59.629594691Z [err]  Node.js v20.18.1
+2026-04-23T13:42:00.624017603Z [err]  Node.js v20.18.1
+2026-04-23T13:42:00.624023236Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:00.624030843Z [err]    throw new Error(
+2026-04-23T13:42:00.624034908Z [err]          ^
+2026-04-23T13:42:00.624038568Z [err]  
+2026-04-23T13:42:00.624042148Z [err]  
+2026-04-23T13:42:00.624045529Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:00.624049226Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:00.624052505Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:00.624058431Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:00.624062172Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:00.624065390Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:00.624068758Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:00.624072459Z [err]  
+2026-04-23T13:42:01.554950593Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:01.554955541Z [err]    throw new Error(
+2026-04-23T13:42:01.554958539Z [err]          ^
+2026-04-23T13:42:01.555209547Z [err]  Node.js v20.18.1
+2026-04-23T13:42:01.555217375Z [err]  
+2026-04-23T13:42:01.555224324Z [err]  
+2026-04-23T13:42:01.555228377Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:01.555232041Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:01.555235557Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:01.555239004Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:01.555242056Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:01.555244902Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:01.555247786Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:01.555250946Z [err]  
+2026-04-23T13:42:02.629396955Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:02.629402664Z [err]    throw new Error(
+2026-04-23T13:42:02.629406504Z [err]          ^
+2026-04-23T13:42:02.629410220Z [err]  
+2026-04-23T13:42:02.629413986Z [err]  
+2026-04-23T13:42:02.629417103Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:02.629420526Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:02.629642756Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:02.629649108Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:02.629653668Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:02.629660620Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:02.629664606Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:02.629668639Z [err]  
+2026-04-23T13:42:02.629672493Z [err]  Node.js v20.18.1
+2026-04-23T13:42:32.629264717Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:32.629295507Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:32.629303897Z [err]    throw new Error(
+2026-04-23T13:42:32.629308380Z [err]          ^
+2026-04-23T13:42:32.629312795Z [err]  
+2026-04-23T13:42:32.629316669Z [err]  
+2026-04-23T13:42:32.629320975Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:32.629335367Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:32.629347489Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:32.629350182Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:32.629353327Z [err]  
+2026-04-23T13:42:32.629356997Z [err]          ^
+2026-04-23T13:42:32.629357334Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:32.629362496Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:32.629365494Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:32.629367572Z [err]  
+2026-04-23T13:42:32.629369774Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:32.629375485Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:32.629380724Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:32.629386345Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:32.629390901Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:32.629396505Z [err]  
+2026-04-23T13:42:32.629401704Z [err]  Node.js v20.18.1
+2026-04-23T13:42:32.629406910Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:32.629411953Z [err]    throw new Error(
+2026-04-23T13:42:32.630730891Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:32.630737016Z [err]  
+2026-04-23T13:42:32.630747084Z [err]  Node.js v20.18.1
+2026-04-23T13:42:32.630752209Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:32.630756888Z [err]    throw new Error(
+2026-04-23T13:42:32.630761381Z [err]          ^
+2026-04-23T13:42:32.630765459Z [err]  
+2026-04-23T13:42:32.630770581Z [err]  
+2026-04-23T13:42:32.630775105Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:32.630779969Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:32.630784444Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:32.630789251Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:32.630794483Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:32.630799020Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:32.630803617Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:32.630808535Z [err]  
+2026-04-23T13:42:32.630813463Z [err]  Node.js v20.18.1
+2026-04-23T13:42:32.630818271Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:32.630822746Z [err]    throw new Error(
+2026-04-23T13:42:32.630827636Z [err]          ^
+2026-04-23T13:42:32.630832557Z [err]  
+2026-04-23T13:42:32.630836940Z [err]  
+2026-04-23T13:42:32.630841402Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:32.630845958Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:32.630850553Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:32.630855342Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:32.632675645Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:32.632683575Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:32.632689383Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:32.632694333Z [err]  
+2026-04-23T13:42:32.632699593Z [err]  Node.js v20.18.1
+2026-04-23T13:42:33.509282132Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:33.509284870Z [err]    throw new Error(
+2026-04-23T13:42:33.509288219Z [err]          ^
+2026-04-23T13:42:33.509290757Z [err]  
+2026-04-23T13:42:33.509294327Z [err]  
+2026-04-23T13:42:33.509296925Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:33.509299785Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:33.509302368Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:33.509304860Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:33.509307462Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:33.509310042Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:33.509312758Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:33.509315434Z [err]  
+2026-04-23T13:42:33.509318515Z [err]  Node.js v20.18.1
+2026-04-23T13:42:34.518955645Z [err]  
+2026-04-23T13:42:34.518963168Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:34.518967664Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:34.518972094Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:34.518975373Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:34.518979406Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:34.518983088Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:34.518986466Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:34.518990703Z [err]  
+2026-04-23T13:42:34.518995766Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:34.518997897Z [err]  Node.js v20.18.1
+2026-04-23T13:42:34.519000918Z [err]    throw new Error(
+2026-04-23T13:42:34.519004681Z [err]          ^
+2026-04-23T13:42:34.519009833Z [err]  
+2026-04-23T13:42:35.521336433Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:35.521341739Z [err]  
+2026-04-23T13:42:35.521345704Z [err]  Node.js v20.18.1
+2026-04-23T13:42:35.521390032Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:35.521394111Z [err]    throw new Error(
+2026-04-23T13:42:35.521398397Z [err]          ^
+2026-04-23T13:42:35.521402346Z [err]  
+2026-04-23T13:42:35.521405992Z [err]  
+2026-04-23T13:42:35.521410016Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:35.521413712Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:35.521417409Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:35.521425112Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:35.521429908Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:35.521435816Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:36.520190631Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:36.520197546Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:36.520203739Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:36.520214692Z [err]    throw new Error(
+2026-04-23T13:42:36.520218726Z [err]          ^
+2026-04-23T13:42:36.520224023Z [err]  
+2026-04-23T13:42:36.520231572Z [err]  
+2026-04-23T13:42:36.520239155Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:36.520248607Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:36.520255433Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:36.520256448Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:36.520261054Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:36.520266297Z [err]  
+2026-04-23T13:42:36.520272516Z [err]  Node.js v20.18.1
+2026-04-23T13:42:37.517852507Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:37.517861573Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:37.517867995Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:37.517872727Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:37.517878998Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:37.517884389Z [err]  
+2026-04-23T13:42:37.517888927Z [err]  Node.js v20.18.1
+2026-04-23T13:42:37.517920214Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:37.517923770Z [err]    throw new Error(
+2026-04-23T13:42:37.517927350Z [err]          ^
+2026-04-23T13:42:37.517931140Z [err]  
+2026-04-23T13:42:37.517935188Z [err]  
+2026-04-23T13:42:37.517939191Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:37.517944388Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:38.628176601Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:38.628186199Z [err]    throw new Error(
+2026-04-23T13:42:38.628192636Z [err]          ^
+2026-04-23T13:42:38.628197827Z [err]  
+2026-04-23T13:42:38.628204140Z [err]  
+2026-04-23T13:42:38.628208806Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:38.628213043Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:38.628217263Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:38.628223118Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:42:38.628228924Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:38.628232773Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:38.628236484Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:38.628240076Z [err]  
+2026-04-23T13:42:38.628244480Z [err]  Node.js v20.18.1
+2026-04-23T13:42:39.590174737Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:42:39.590182640Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:42:39.590187430Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:42:39.590189052Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:42:39.590196986Z [err]  
+2026-04-23T13:42:39.590199287Z [err]    throw new Error(
+2026-04-23T13:42:39.590202956Z [err]  Node.js v20.18.1
+2026-04-23T13:42:39.590206883Z [err]          ^
+2026-04-23T13:42:39.590212168Z [err]  
+2026-04-23T13:42:39.590217504Z [err]  
+2026-04-23T13:42:39.590222833Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:42:39.590228405Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:42:39.590233387Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:42:39.590238140Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:45:46.692585383Z [inf]  The files belonging to this database system will be owned by user "postgres".
+2026-04-23T13:45:46.692588568Z [inf]  This user must also own the server process.
+2026-04-23T13:45:46.692593856Z [inf]  
+2026-04-23T13:45:46.692596911Z [inf]  The database cluster will be initialized with locale "en_US.utf8".
+2026-04-23T13:45:46.692600215Z [inf]  The default database encoding has accordingly been set to "UTF8".
+2026-04-23T13:45:46.692603643Z [inf]  The default text search configuration will be set to "english".
+2026-04-23T13:45:46.692612099Z [inf]  
+2026-04-23T13:45:46.692615603Z [inf]  Data page checksums are enabled.
+2026-04-23T13:45:46.692618507Z [inf]  
+2026-04-23T13:45:46.692621668Z [inf]  fixing permissions on existing directory /var/lib/postgresql/data/pgdata ... ok
+2026-04-23T13:45:46.692625060Z [inf]  creating subdirectories ... ok
+2026-04-23T13:45:46.692628156Z [inf]  selecting dynamic shared memory implementation ... posix
+2026-04-23T13:45:46.692633057Z [inf]  selecting default "max_connections" ... 100
+2026-04-23T13:45:46.692637096Z [inf]  selecting default "shared_buffers" ... 128MB
+2026-04-23T13:45:46.692640278Z [inf]  selecting default time zone ... Etc/UTC
+2026-04-23T13:45:46.692643435Z [inf]  creating configuration files ... ok
+2026-04-23T13:45:46.692647314Z [inf]  running bootstrap script ... ok
+2026-04-23T13:45:46.692651459Z [inf]  performing post-bootstrap initialization ... ok
+2026-04-23T13:45:46.755101487Z [inf]  Starting Container
+2026-04-23T13:45:46.854474674Z [inf]  Mounting volume on: /var/lib/containers/railwayapp/bind-mounts/edce063f-24bd-4554-ab10-eb69ceb4ed91/vol_flpuehqrsqxc2e4n
+2026-04-23T13:45:46.862080514Z [inf]  syncing data to disk ... ok
+2026-04-23T13:45:46.862087083Z [inf]  
+2026-04-23T13:45:46.862092104Z [inf]  
+2026-04-23T13:45:46.862096027Z [inf]  Success. You can now start the database server using:
+2026-04-23T13:45:46.862099307Z [inf]  
+2026-04-23T13:45:46.862103002Z [inf]      pg_ctl -D /var/lib/postgresql/data/pgdata -l logfile start
+2026-04-23T13:45:46.862106384Z [inf]  
+2026-04-23T13:45:46.862111057Z [err]  initdb: warning: enabling "trust" authentication for local connections
+2026-04-23T13:45:46.862117219Z [err]  initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-04-23T13:45:46.901065068Z [inf]  waiting for server to start....2026-04-23 13:45:46.899 UTC [46] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-04-23T13:45:46.907625211Z [inf]  2026-04-23 13:45:46.903 UTC [46] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-04-23T13:45:46.914684320Z [inf]  2026-04-23 13:45:46.913 UTC [52] LOG:  database system was shut down at 2026-04-23 13:45:46 UTC
+2026-04-23T13:45:46.921822048Z [inf]  2026-04-23 13:45:46.919 UTC [46] LOG:  database system is ready to accept connections
+2026-04-23T13:45:47.002960658Z [inf]   done
+2026-04-23T13:45:47.002971573Z [inf]  server started
+2026-04-23T13:45:47.102680383Z [inf]  CREATE DATABASE
+2026-04-23T13:45:47.102683745Z [inf]  
+2026-04-23T13:45:47.102686920Z [inf]  
+2026-04-23T13:45:47.102689968Z [inf]  /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init-ssl.sh
+2026-04-23T13:45:47.129176359Z [err]  ..+......+..+..........+..+............+....+..+....+.....+
+2026-04-23T13:45:47.129180876Z [err]  ...+............................+.....+....+...+......+..+..........+..+
+2026-04-23T13:45:47.129184472Z [err]  ...+....+...++++++
+2026-04-23T13:45:47.129187270Z [err]  ++++++++++
+2026-04-23T13:45:47.130816947Z [err]  ++++++++++
+2026-04-23T13:45:47.130820269Z [err]  ++++++++++
+2026-04-23T13:45:47.130822903Z [err]  +++*.++++++++
+2026-04-23T13:45:47.130825527Z [err]  ++++++++++
+2026-04-23T13:45:47.132826651Z [err]  ++++++++++
+2026-04-23T13:45:47.132830327Z [err]  ++++++++++
+2026-04-23T13:45:47.132833021Z [err]  +*...+..+.......+...
+2026-04-23T13:45:47.132842862Z [err]  +.....+.......+...+
+2026-04-23T13:45:47.132847152Z [err]  ..+.+.....+.........+
+2026-04-23T13:45:47.134615221Z [err]  .+.........+.....+
+2026-04-23T13:45:47.134619555Z [err]  ......+..........+..
+2026-04-23T13:45:47.134622533Z [err]  +..........+
+2026-04-23T13:45:47.134625168Z [err]  ..+...+............+.+
+2026-04-23T13:45:47.136698898Z [err]  ..++++++
+2026-04-23T13:45:47.136703022Z [err]  ..+.+.........+.....+++++++
+2026-04-23T13:45:47.136708995Z [err]  +++++++++++++++++
+2026-04-23T13:45:47.136713493Z [err]  +++++++++++++++*.+
+2026-04-23T13:45:47.136717882Z [err]  ........+.........+...+...+...+.+......
+2026-04-23T13:45:47.139108488Z [err]  +...+.....+.+........++++++++
+2026-04-23T13:45:47.139113711Z [err]  ++++++++++
+2026-04-23T13:45:47.139119432Z [err]  ++++++++++
+2026-04-23T13:45:47.139122848Z [err]  ++++++++++
+2026-04-23T13:45:47.141448988Z [err]  +*...+...+..+.
+2026-04-23T13:45:47.141453057Z [err]  .....+.+.....+.+
+2026-04-23T13:45:47.141456022Z [err]  ...+..+.......+
+2026-04-23T13:45:47.141458735Z [err]  ..+.........+....+......
+2026-04-23T13:45:47.141461567Z [err]  ..+...+............
+2026-04-23T13:45:47.143024294Z [err]  .......+..+
+2026-04-23T13:45:47.143027118Z [err]  ...+...+...+.+......+
+2026-04-23T13:45:47.143029820Z [err]  ..+.+......+..
+2026-04-23T13:45:47.143032824Z [err]  .+...+..+.......+
+2026-04-23T13:45:47.144952283Z [err]  ........+.+..
+2026-04-23T13:45:47.144954800Z [err]  +...............
+2026-04-23T13:45:47.144957466Z [err]  +...+.+...........
+2026-04-23T13:45:47.144960212Z [err]  .......+.....
+2026-04-23T13:45:47.146410503Z [err]  +...............+...+...
+2026-04-23T13:45:47.146416262Z [err]  +......................
+2026-04-23T13:45:47.146420365Z [err]  .................+.+
+2026-04-23T13:45:47.146423414Z [err]  .........+..+...++++
+2026-04-23T13:45:47.146426667Z [err]  ++
+2026-04-23T13:45:47.147909499Z [err]  -----
+2026-04-23T13:45:47.157650412Z [err]  .....+...........++++++++
+2026-04-23T13:45:47.157654256Z [err]  +++++++++++++++
+2026-04-23T13:45:47.157657229Z [err]  +++++++++++++
+2026-04-23T13:45:47.157660223Z [err]  +++*...+.....+...+.......+.....
+2026-04-23T13:45:47.159647832Z [err]  ....+........+.+......+...+++++
+2026-04-23T13:45:47.159652512Z [err]  +++++++++++
+2026-04-23T13:45:47.159656532Z [err]  ++++++++++
+2026-04-23T13:45:47.159659992Z [err]  ++++++++++
+2026-04-23T13:45:47.161745082Z [err]  +++*.......
+2026-04-23T13:45:47.161749164Z [err]  .............
+2026-04-23T13:45:47.161752045Z [err]  .+..+..........+
+2026-04-23T13:45:47.161755163Z [err]  ..+.+........+......+
+2026-04-23T13:45:47.161757757Z [err]  .+.....+.........+...
+2026-04-23T13:45:47.163734774Z [err]  ++++++
+2026-04-23T13:45:47.163738126Z [err]  .++++++++++++++
+2026-04-23T13:45:47.163740771Z [err]  ++++++++++++++
+2026-04-23T13:45:47.163743603Z [err]  +++++++++++*.....
+2026-04-23T13:45:47.163746435Z [err]  ....+.........+...+..+...+............+.+..
+2026-04-23T13:45:47.165815088Z [err]  +....+...+...+...+..+.......+.....+.+
+2026-04-23T13:45:47.165818889Z [err]  .....+.+.....+...+...+...+.+.....+.+
+2026-04-23T13:45:47.165821530Z [err]  ..+...+.......+...+.....+...+++
+2026-04-23T13:45:47.165824121Z [err]  ++++++++++
+2026-04-23T13:45:47.167753943Z [err]  ++++++++++
+2026-04-23T13:45:47.167758428Z [err]  ++++++++++
+2026-04-23T13:45:47.167761358Z [err]  ++++++*.....+
+2026-04-23T13:45:47.167764606Z [err]  ...............+...
+2026-04-23T13:45:47.169727630Z [err]  +.......+.........
+2026-04-23T13:45:47.169731044Z [err]  ..+.......+........
+2026-04-23T13:45:47.169733905Z [err]  +............+
+2026-04-23T13:45:47.169737148Z [err]  .+.................+...
+2026-04-23T13:45:47.169739868Z [err]  +....+...+++++
+2026-04-23T13:45:47.169742491Z [err]  +
+2026-04-23T13:45:47.169745256Z [err]  -----
+2026-04-23T13:45:47.179933300Z [err]  Certificate request self-signature ok
+2026-04-23T13:45:47.179936571Z [err]  subject=CN=localhost
+2026-04-23T13:45:47.179940421Z [inf]  
+2026-04-23T13:45:47.179944426Z [inf]  waiting for server to shut down....2026-04-23 13:45:47.178 UTC [46] LOG:  received fast shutdown request
+2026-04-23T13:45:47.186672399Z [inf]  2026-04-23 13:45:47.184 UTC [46] LOG:  aborting any active transactions
+2026-04-23T13:45:47.186676883Z [inf]  2026-04-23 13:45:47.185 UTC [46] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+2026-04-23T13:45:47.186680882Z [inf]  2026-04-23 13:45:47.185 UTC [50] LOG:  shutting down
+2026-04-23T13:45:47.190557180Z [inf]  2026-04-23 13:45:47.188 UTC [50] LOG:  checkpoint starting: shutdown immediate
+2026-04-23T13:45:47.277440564Z [inf]  2026-04-23 13:45:47.248 UTC [50] LOG:  checkpoint complete: wrote 943 buffers (5.8%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.014 s, sync=0.036 s, total=0.063 s; sync files=303, longest=0.024 s, average=0.001 s; distance=4352 kB, estimate=4352 kB; lsn=0/1B9FBA8, redo lsn=0/1B9FBA8
+2026-04-23T13:45:47.277443506Z [inf]  2026-04-23 13:45:47.261 UTC [46] LOG:  database system is shut down
+2026-04-23T13:45:47.279271707Z [inf]   done
+2026-04-23T13:45:47.279278440Z [inf]  server stopped
+2026-04-23T13:45:47.281358750Z [inf]  
+2026-04-23T13:45:47.281367613Z [inf]  PostgreSQL init process complete; ready for start up.
+2026-04-23T13:45:47.281371883Z [inf]  
+2026-04-23T13:45:47.307126721Z [err]  2026-04-23 13:45:47.304 UTC [3] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-04-23T13:45:47.307129475Z [err]  2026-04-23 13:45:47.304 UTC [3] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-04-23T13:45:47.307132898Z [err]  2026-04-23 13:45:47.304 UTC [3] LOG:  listening on IPv6 address "::", port 5432
+2026-04-23T13:45:47.314384565Z [err]  2026-04-23 13:45:47.312 UTC [3] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-04-23T13:45:47.328967284Z [err]  2026-04-23 13:45:47.321 UTC [84] LOG:  database system was shut down at 2026-04-23 13:45:47 UTC
+2026-04-23T13:45:47.328970423Z [err]  2026-04-23 13:45:47.328 UTC [3] LOG:  database system is ready to accept connections
+2026-04-23T13:46:10.461146080Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:10.461157703Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:10.461158189Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:10.461163027Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:10.461167231Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:10.461168829Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:10.461178297Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:10.461183292Z [err]  
+2026-04-23T13:46:10.461191079Z [err]  Node.js v20.18.1
+2026-04-23T13:46:10.461191715Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:10.461192240Z [err]  
+2026-04-23T13:46:10.461198096Z [err]  
+2026-04-23T13:46:10.461204487Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:10.461205463Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:10.461211608Z [err]    throw new Error(
+2026-04-23T13:46:10.461214959Z [err]    throw new Error(
+2026-04-23T13:46:10.461220750Z [err]          ^
+2026-04-23T13:46:10.461221994Z [err]          ^
+2026-04-23T13:46:10.461225595Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:10.461229072Z [err]  
+2026-04-23T13:46:10.461233682Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:10.461237142Z [err]  
+2026-04-23T13:46:10.461250287Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:10.461250494Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:10.461258680Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:10.462704215Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:10.462705262Z [err]  Node.js v20.18.1
+2026-04-23T13:46:10.462711415Z [err]  
+2026-04-23T13:46:10.462713986Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:10.462720044Z [err]    throw new Error(
+2026-04-23T13:46:10.462724515Z [err]          ^
+2026-04-23T13:46:10.462728850Z [err]  
+2026-04-23T13:46:10.462734157Z [err]  
+2026-04-23T13:46:10.462744923Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:10.462751172Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:10.462756062Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:10.462762188Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:10.462763847Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:10.462769726Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:10.462774929Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:10.462780383Z [err]  
+2026-04-23T13:46:10.462785416Z [err]  Node.js v20.18.1
+2026-04-23T13:46:11.127488517Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:11.127494509Z [err]    throw new Error(
+2026-04-23T13:46:11.127498749Z [err]          ^
+2026-04-23T13:46:11.127503546Z [err]  
+2026-04-23T13:46:11.127507260Z [err]  
+2026-04-23T13:46:11.127510864Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:11.127514335Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:11.127517859Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:11.127521581Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:11.127525173Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:11.127528610Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:11.127532602Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:11.127535882Z [err]  
+2026-04-23T13:46:11.127541815Z [err]  Node.js v20.18.1
+2026-04-23T13:46:12.223197896Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:12.223202843Z [err]    throw new Error(
+2026-04-23T13:46:12.223207055Z [err]          ^
+2026-04-23T13:46:12.223211209Z [err]  
+2026-04-23T13:46:12.223214763Z [err]  
+2026-04-23T13:46:12.223218074Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:12.223221343Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:12.223224999Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:12.223228337Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:12.223232940Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:12.223236003Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:12.223239405Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:12.223242793Z [err]  
+2026-04-23T13:46:12.223246289Z [err]  Node.js v20.18.1
+2026-04-23T13:46:13.141783371Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:13.141788227Z [err]    throw new Error(
+2026-04-23T13:46:13.141792956Z [err]          ^
+2026-04-23T13:46:13.141797453Z [err]  
+2026-04-23T13:46:13.141801664Z [err]  
+2026-04-23T13:46:13.141810119Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:13.141814508Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:13.141819791Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:13.141824546Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:13.141828897Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:13.141833006Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:13.141837230Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:13.141841216Z [err]  
+2026-04-23T13:46:13.141845137Z [err]  Node.js v20.18.1
+2026-04-23T13:46:14.209350826Z [err]  
+2026-04-23T13:46:14.209360374Z [err]  Node.js v20.18.1
+2026-04-23T13:46:14.209392890Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:14.209397433Z [err]    throw new Error(
+2026-04-23T13:46:14.209401548Z [err]          ^
+2026-04-23T13:46:14.209405846Z [err]  
+2026-04-23T13:46:14.209409687Z [err]  
+2026-04-23T13:46:14.209414252Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:14.209418771Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:14.209425578Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:14.209429727Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:14.209434925Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:14.209439224Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:14.209443787Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:15.163980240Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:15.163985874Z [err]    throw new Error(
+2026-04-23T13:46:15.163989676Z [err]          ^
+2026-04-23T13:46:15.163993767Z [err]  
+2026-04-23T13:46:15.163997591Z [err]  
+2026-04-23T13:46:15.164001239Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:15.164004488Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:15.164008142Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:15.164011617Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:15.164015111Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:15.164019051Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:15.164022464Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:15.164026142Z [err]  
+2026-04-23T13:46:15.164029894Z [err]  Node.js v20.18.1
+2026-04-23T13:46:16.079409098Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:16.079415907Z [err]    throw new Error(
+2026-04-23T13:46:16.079419842Z [err]          ^
+2026-04-23T13:46:16.079424013Z [err]  
+2026-04-23T13:46:16.079428022Z [err]  
+2026-04-23T13:46:16.079431682Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:16.079435560Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:16.079439511Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:16.079443237Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:16.079446869Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:16.079450196Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:16.079453500Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:16.079456717Z [err]  
+2026-04-23T13:46:16.079459920Z [err]  Node.js v20.18.1
+2026-04-23T13:46:17.022994189Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:17.023002704Z [err]    throw new Error(
+2026-04-23T13:46:17.023007863Z [err]          ^
+2026-04-23T13:46:17.023014038Z [err]  
+2026-04-23T13:46:17.023017893Z [err]  
+2026-04-23T13:46:17.023021478Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:17.023024929Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:17.023028475Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:17.023032055Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:17.023037244Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:46:17.023042829Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:17.023047436Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:17.023051138Z [err]  
+2026-04-23T13:46:17.023055034Z [err]  Node.js v20.18.1
+2026-04-23T13:46:17.999808412Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:46:17.999818982Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:46:17.999819119Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:46:17.999826811Z [err]  
+2026-04-23T13:46:17.999829972Z [err]    throw new Error(
+2026-04-23T13:46:17.999834417Z [err]  Node.js v20.18.1
+2026-04-23T13:46:17.999837586Z [err]          ^
+2026-04-23T13:46:17.999842280Z [err]  
+2026-04-23T13:46:17.999846929Z [err]  
+2026-04-23T13:46:17.999851923Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:46:17.999858110Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:46:17.999862764Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:46:17.999868173Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:46:17.999872752Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:50:49.360032927Z [err]  2026-04-23 13:50:47.419 UTC [82] LOG:  checkpoint starting: time
+2026-04-23T13:50:51.799791344Z [err]  2026-04-23 13:50:51.757 UTC [82] LOG:  checkpoint complete: wrote 43 buffers (0.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=4.316 s, sync=0.009 s, total=4.338 s; sync files=12, longest=0.005 s, average=0.001 s; distance=318 kB, estimate=318 kB; lsn=0/1BEF6A0, redo lsn=0/1BEF610
+2026-04-23T13:54:29.564911571Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.564917818Z [err]  
+2026-04-23T13:54:29.564926132Z [err]    throw new Error(
+2026-04-23T13:54:29.564928308Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.564928370Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.564929650Z [err]  
+2026-04-23T13:54:29.564939626Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.564940138Z [err]    throw new Error(
+2026-04-23T13:54:29.564941861Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.564942347Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.564943803Z [err]  
+2026-04-23T13:54:29.564947197Z [err]          ^
+2026-04-23T13:54:29.564949418Z [err]          ^
+2026-04-23T13:54:29.564955011Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.564955388Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.564957757Z [err]  
+2026-04-23T13:54:29.564958296Z [err]  
+2026-04-23T13:54:29.564964121Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.564964471Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.564970539Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.564973183Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.564979487Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.564981506Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.564987215Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.564992029Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.566170311Z [err]          ^
+2026-04-23T13:54:29.566174884Z [err]  
+2026-04-23T13:54:29.566178835Z [err]  
+2026-04-23T13:54:29.566186042Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.566188673Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.566189976Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.566199490Z [err]    throw new Error(
+2026-04-23T13:54:29.566922482Z [err]  
+2026-04-23T13:54:29.566928787Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.566935589Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.566940862Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.566946258Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.566952831Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.566957965Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.566962936Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.566967992Z [err]  
+2026-04-23T13:54:29.566973915Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.566980020Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.566985373Z [err]    throw new Error(
+2026-04-23T13:54:29.566990346Z [err]          ^
+2026-04-23T13:54:29.566994584Z [err]  
+2026-04-23T13:54:29.566999052Z [err]  
+2026-04-23T13:54:29.567003538Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.567007946Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.567013166Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.567017855Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.568231967Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.568236349Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.568240222Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.568244174Z [err]  
+2026-04-23T13:54:29.568470652Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.568476149Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.568479992Z [err]    throw new Error(
+2026-04-23T13:54:29.568483843Z [err]          ^
+2026-04-23T13:54:29.568488160Z [err]  
+2026-04-23T13:54:29.568491665Z [err]  
+2026-04-23T13:54:29.568495279Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.568498579Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.568501736Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.568504972Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.568508110Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.568511932Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.568515294Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.568518687Z [err]  
+2026-04-23T13:54:29.568522183Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.568525627Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.568529086Z [err]    throw new Error(
+2026-04-23T13:54:29.568532454Z [err]          ^
+2026-04-23T13:54:29.568536590Z [err]  
+2026-04-23T13:54:29.568540898Z [err]  
+2026-04-23T13:54:29.568546458Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.569683742Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.569688135Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.569692218Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.569696974Z [err]  
+2026-04-23T13:54:29.569699329Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.569700714Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.569704576Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.569707812Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.569707896Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.569712551Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.569714397Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.569719761Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.569723791Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.569723923Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.569725014Z [err]          ^
+2026-04-23T13:54:29.569727485Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.569732010Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.569733688Z [err]  
+2026-04-23T13:54:29.569735100Z [err]  
+2026-04-23T13:54:29.569740458Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.569742763Z [err]  
+2026-04-23T13:54:29.569745730Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.569749180Z [err]    throw new Error(
+2026-04-23T13:54:29.570915849Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.570916724Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.570920538Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.570924388Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.570926434Z [err]  
+2026-04-23T13:54:29.570931062Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.570932691Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.570938243Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.570939377Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.570943172Z [err]    throw new Error(
+2026-04-23T13:54:29.570946832Z [err]          ^
+2026-04-23T13:54:29.570951690Z [err]  
+2026-04-23T13:54:29.570952341Z [err]    throw new Error(
+2026-04-23T13:54:29.570957615Z [err]  
+2026-04-23T13:54:29.570957661Z [err]          ^
+2026-04-23T13:54:29.570964551Z [err]  
+2026-04-23T13:54:29.570967656Z [err]  
+2026-04-23T13:54:29.570970888Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.570973882Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.570977316Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.570980328Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.570984163Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.571484583Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.571488657Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.572089179Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.572093971Z [err]  
+2026-04-23T13:54:29.572097999Z [err]  Node.js v20.18.1
+2026-04-23T13:54:29.572101733Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:29.572105174Z [err]    throw new Error(
+2026-04-23T13:54:29.572108625Z [err]          ^
+2026-04-23T13:54:29.572112023Z [err]  
+2026-04-23T13:54:29.572115563Z [err]  
+2026-04-23T13:54:29.572118968Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:29.572122428Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:29.572125349Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:29.572128497Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:29.572131857Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:29.572135358Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:29.572139346Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:29.572144355Z [err]  
+2026-04-23T13:54:29.572149169Z [err]  Node.js v20.18.1
+2026-04-23T13:54:30.067712394Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:54:30.067717344Z [err]    throw new Error(
+2026-04-23T13:54:30.067721012Z [err]          ^
+2026-04-23T13:54:30.067724668Z [err]  
+2026-04-23T13:54:30.067728595Z [err]  
+2026-04-23T13:54:30.067732322Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:54:30.067735979Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:54:30.067739276Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:54:30.067742762Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:54:30.067746317Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:54:30.067749645Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:54:30.067752815Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:54:30.067758145Z [err]  
+2026-04-23T13:54:30.067761767Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.089201830Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.089208385Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.089209079Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.089214773Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.089219002Z [err]    throw new Error(
+2026-04-23T13:58:30.089221764Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.089226329Z [err]          ^
+2026-04-23T13:58:30.089229854Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.089236429Z [err]  
+2026-04-23T13:58:30.089236674Z [err]    throw new Error(
+2026-04-23T13:58:30.089241965Z [err]          ^
+2026-04-23T13:58:30.089244291Z [err]  
+2026-04-23T13:58:30.089247463Z [err]  
+2026-04-23T13:58:30.089252485Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.089253270Z [err]  
+2026-04-23T13:58:30.089258598Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.089261058Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.089264040Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.089268565Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.089269701Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.089274782Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.089279447Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.089284128Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.089288950Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.089294107Z [err]  
+2026-04-23T13:58:30.091324650Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.091328902Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.091332205Z [err]  
+2026-04-23T13:58:30.091334407Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.091336671Z [err]    throw new Error(
+2026-04-23T13:58:30.091342435Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.091343876Z [err]  
+2026-04-23T13:58:30.091343955Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.091344440Z [err]          ^
+2026-04-23T13:58:30.091350061Z [err]  
+2026-04-23T13:58:30.091353383Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.091359342Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.091359378Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.091362818Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.091368284Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.091371492Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.091373864Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.091373947Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.091377358Z [err]  
+2026-04-23T13:58:30.091378064Z [err]    throw new Error(
+2026-04-23T13:58:30.091383585Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.091383717Z [err]          ^
+2026-04-23T13:58:30.091388143Z [err]  
+2026-04-23T13:58:30.091392385Z [err]  
+2026-04-23T13:58:30.091396229Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.091399924Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.092849654Z [err]  
+2026-04-23T13:58:30.092850423Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.092856381Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.092859466Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.092863641Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.092868094Z [err]  
+2026-04-23T13:58:30.092869396Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.092873461Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.092875333Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.092877956Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.092881416Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.092884038Z [err]    throw new Error(
+2026-04-23T13:58:30.092886712Z [err]  
+2026-04-23T13:58:30.092889434Z [err]          ^
+2026-04-23T13:58:30.092891766Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.092894627Z [err]  
+2026-04-23T13:58:30.092897810Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.092902098Z [err]  
+2026-04-23T13:58:30.092903794Z [err]    throw new Error(
+2026-04-23T13:58:30.092908582Z [err]          ^
+2026-04-23T13:58:30.092909872Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.092915743Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.092916485Z [err]  
+2026-04-23T13:58:30.092921907Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.092926398Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.094363382Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.094367192Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.094370843Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.094376167Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.094377831Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.094380667Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.094385112Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.094386813Z [err]  
+2026-04-23T13:58:30.094392237Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.094393602Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.094399535Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.094403237Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.094406771Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.094410081Z [err]  
+2026-04-23T13:58:30.094413484Z [err]  Node.js v20.18.1
+2026-04-23T13:58:30.094416917Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.094420814Z [err]    throw new Error(
+2026-04-23T13:58:30.094424961Z [err]          ^
+2026-04-23T13:58:30.094428619Z [err]  
+2026-04-23T13:58:30.094431959Z [err]  
+2026-04-23T13:58:30.094435647Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.094439011Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.798707179Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:30.798715647Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:30.798721261Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:30.798731932Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:30.798739746Z [err]  
+2026-04-23T13:58:30.798740796Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:30.798749227Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:30.798749802Z [err]  
+2026-04-23T13:58:30.798752616Z [err]    throw new Error(
+2026-04-23T13:58:30.798756665Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:30.798759404Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:30.798761691Z [err]          ^
+2026-04-23T13:58:30.798768814Z [err]  
+2026-04-23T13:58:30.798775065Z [err]  Node.js v20.18.1
+2026-04-23T13:58:31.556637854Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:31.556644342Z [err]    throw new Error(
+2026-04-23T13:58:31.556648448Z [err]          ^
+2026-04-23T13:58:31.556652397Z [err]  
+2026-04-23T13:58:31.556656776Z [err]  
+2026-04-23T13:58:31.556660606Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:31.556663709Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:31.556667012Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:31.556670658Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:31.556674195Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:31.556677652Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:31.556683193Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:31.556686674Z [err]  
+2026-04-23T13:58:31.556692011Z [err]  Node.js v20.18.1
+2026-04-23T13:58:32.525041463Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:32.525043637Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:32.525049413Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:32.525051635Z [err]    throw new Error(
+2026-04-23T13:58:32.525055990Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:32.525061504Z [err]  
+2026-04-23T13:58:32.525066788Z [err]  Node.js v20.18.1
+2026-04-23T13:58:32.525072222Z [err]          ^
+2026-04-23T13:58:32.525076080Z [err]  
+2026-04-23T13:58:32.525079314Z [err]  
+2026-04-23T13:58:32.525082897Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:32.525086540Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:32.525090246Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:32.525093689Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:33.495748299Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T13:58:33.495757234Z [err]    throw new Error(
+2026-04-23T13:58:33.495763056Z [err]          ^
+2026-04-23T13:58:33.495771378Z [err]  
+2026-04-23T13:58:33.495777624Z [err]  
+2026-04-23T13:58:33.495783174Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T13:58:33.495789476Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T13:58:33.495797566Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T13:58:33.495803502Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T13:58:33.495808367Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T13:58:33.495812878Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T13:58:33.495816449Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T13:58:33.495819722Z [err]  
+2026-04-23T13:58:33.495824207Z [err]  Node.js v20.18.1
+2026-04-23T14:00:43.567586784Z [inf]  Starting Container
+2026-04-23T14:00:47.317927907Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T14:00:47.317938030Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T14:00:47.317942160Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T14:00:47.317947197Z [err]    throw new Error(
+2026-04-23T14:00:47.317954083Z [err]          ^
+2026-04-23T14:00:47.317961095Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T14:00:47.317961275Z [err]  
+2026-04-23T14:00:47.317968500Z [err]  
+2026-04-23T14:00:47.317975055Z [err]  
+2026-04-23T14:00:47.317977208Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T14:00:47.317985420Z [err]  Node.js v20.18.1
+2026-04-23T14:00:47.317986797Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T14:00:47.317996632Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T14:00:47.318003311Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T14:00:47.318005321Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T14:00:47.318012190Z [err]    throw new Error(
+2026-04-23T14:00:47.318014282Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T14:00:47.318021049Z [err]          ^
+2026-04-23T14:00:47.318023368Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T14:00:47.318028499Z [err]  
+2026-04-23T14:00:47.318035129Z [err]  
+2026-04-23T14:00:47.318041765Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T14:00:47.318047658Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T14:00:47.318053308Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T14:00:47.318059311Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T14:00:48.262670635Z [inf]  Stopping Container
+2026-04-23T14:00:49.266042032Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T14:00:49.266049431Z [err]  
+2026-04-23T14:00:49.266055577Z [err]  Node.js v20.18.1
+2026-04-23T14:00:49.266061060Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T14:00:49.266066524Z [err]    throw new Error(
+2026-04-23T14:00:49.266072942Z [err]          ^
+2026-04-23T14:00:49.266078691Z [err]  
+2026-04-23T14:00:49.266084591Z [err]  
+2026-04-23T14:00:49.266091386Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T14:00:49.266097326Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T14:00:49.266102641Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T14:00:49.266107885Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T14:00:49.266114077Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T14:00:49.266119965Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T14:00:49.266125824Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T14:00:49.266131532Z [err]  
+2026-04-23T14:00:49.266137370Z [err]  Node.js v20.18.1
+2026-04-23T14:00:50.961750571Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T14:00:50.961760203Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T14:00:50.961767170Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T14:00:50.961773493Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T14:00:50.961781298Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T14:00:50.961789363Z [err]  
+2026-04-23T14:00:50.961794623Z [err]  Node.js v20.18.1
+2026-04-23T14:00:50.962420996Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T14:00:50.962429569Z [err]    throw new Error(
+2026-04-23T14:00:50.962435713Z [err]          ^
+2026-04-23T14:00:50.962446987Z [err]  
+2026-04-23T14:00:50.962456399Z [err]  
+2026-04-23T14:00:50.962463026Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T14:00:50.962470322Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T14:00:53.032394398Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T14:00:53.032399429Z [err]    throw new Error(
+2026-04-23T14:00:53.032404272Z [err]          ^
+2026-04-23T14:00:53.032412562Z [err]  
+2026-04-23T14:00:53.032417604Z [err]  
+2026-04-23T14:00:53.032423248Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T14:00:53.032587828Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T14:00:53.032600184Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T14:00:53.032608102Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T14:00:53.032615289Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T14:00:53.032621682Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T14:00:53.032629160Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T14:00:53.032635902Z [err]  
+2026-04-23T14:00:53.032645499Z [err]  Node.js v20.18.1
+2026-04-23T14:00:57.553805610Z [err]      at __init (file:///app/artifacts/api-server/dist/index.mjs:22:56)
+2026-04-23T14:00:57.553819341Z [err]  
+2026-04-23T14:00:57.553831435Z [err]  
+2026-04-23T14:00:57.553838276Z [err]      at <anonymous> (/app/artifacts/api-server/src/routes/auth.ts:5:1)
+2026-04-23T14:00:57.553842889Z [err]  Error: DATABASE_URL must be set. Did you forget to provision a database?
+2026-04-23T14:00:57.553846784Z [err]      at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+2026-04-23T14:00:57.553855297Z [err]      at ../../lib/db/src/index.ts (/app/lib/db/src/index.ts:8:9)
+2026-04-23T14:00:57.553857080Z [err]      at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2026-04-23T14:00:57.553864678Z [err]      at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:122:5)
+2026-04-23T14:00:57.553872097Z [err]  
+2026-04-23T14:00:57.553974245Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T14:00:57.553980918Z [err]    throw new Error(
+2026-04-23T14:00:57.553986466Z [err]          ^
+2026-04-23T14:00:57.554477880Z [err]  Node.js v20.18.1
+2026-04-23T14:01:00.845678989Z [err]  /app/lib/db/src/index.ts:8
+2026-04-23T14:01:00.845686107Z [err]    throw new Error(
+2026-04-23T14:01:00.845692423Z [err]          ^
+2026-04-23T14:01:00.845700113Z [err]  
+2026-04-23T14:01:00.845706965Z [err]  

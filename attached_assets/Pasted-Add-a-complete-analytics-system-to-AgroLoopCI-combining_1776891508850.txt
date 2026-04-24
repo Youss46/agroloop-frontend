@@ -1,0 +1,386 @@
+Add a complete analytics system to AgroLoopCI combining
+Google Analytics 4 for traffic tracking and a custom
+admin dashboard for business-specific metrics.
+
+═══════════════════════════════════════════
+## PART 1 — GOOGLE ANALYTICS 4
+═══════════════════════════════════════════
+
+## Setup
+
+Install Google Analytics 4 in the React app:
+
+1. Add GA4 script to index.html <head>:
+<!-- Google tag (gtag.js) -->
+<script async 
+  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+2. Store measurement ID in .env:
+   VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+3. Create analytics helper (src/lib/analytics.ts):
+
+// Track page views (call on route change)
+export const trackPageView = (path: string) => {
+  window.gtag('config', import.meta.env.VITE_GA_MEASUREMENT_ID, {
+    page_path: path
+  })
+}
+
+// Track custom events
+export const trackEvent = (
+  action: string, 
+  category: string, 
+  label?: string, 
+  value?: number
+) => {
+  window.gtag('event', action, {
+    event_category: category,
+    event_label: label,
+    value: value
+  })
+}
+
+4. Add to App.tsx — track route changes:
+const location = useLocation()
+useEffect(() => {
+  trackPageView(location.pathname)
+}, [location])
+
+## Custom GA4 Events to track:
+
+trackEvent on these user actions:
+
+// Auth
+'sign_up' → category: 'auth', label: role
+'login' → category: 'auth'
+
+// Offers
+'offer_view' → category: 'offres', label: type_residu
+'offer_create' → category: 'offres', label: type_residu
+'offer_share' → category: 'offres', label: type_residu
+
+// Marketplace
+'marketplace_search' → category: 'marketplace', label: query
+'marketplace_filter' → category: 'marketplace', label: filter_type
+'contact_seller' → category: 'contact', label: method (chat/whatsapp)
+
+// Transactions
+'devis_sent' → category: 'transaction', value: price_fcfa
+'order_placed' → category: 'transaction', value: total_fcfa
+'transaction_confirmed' → category: 'transaction', value: total_fcfa
+
+// Subscription
+'subscription_start' → category: 'monetisation', label: plan
+'subscription_confirmed' → category: 'monetisation', label: plan, value: price
+
+// Calculator
+'calculator_used' → category: 'engagement', label: type_residu
+'calculator_shared' → category: 'engagement'
+
+// Verification
+'verification_submitted' → category: 'onboarding', label: level
+
+═══════════════════════════════════════════
+## PART 2 — CUSTOM ANALYTICS (admin dashboard)
+═══════════════════════════════════════════
+
+## DATABASE
+
+New page_views table:
+- id, path (text), referrer (text nullable)
+- user_id (FK users, nullable — null if not logged in)
+- session_id (text — random UUID per session)
+- device_type (enum: 'mobile' | 'tablet' | 'desktop')
+- region (text nullable — from user profile if logged in)
+- duration_seconds (integer nullable)
+- created_at
+
+New offer_views table:
+- id, offre_id (FK residus)
+- viewer_id (FK users, nullable)
+- session_id (text)
+- created_at
+
+New conversion_events table:
+- id, event_type (enum: 
+    'visit' | 'register' | 'first_offer' |
+    'first_contact' | 'first_transaction' |
+    'subscription')
+- user_id (FK users, nullable)
+- session_id (text)
+- metadata (jsonb)
+- created_at
+
+## BACKEND
+
+Analytics middleware (middleware/analytics.ts):
+Applied to ALL routes automatically:
+
+- Extract session_id from cookie 
+  (set cookie if not exists: random UUID, 30min expiry)
+- Detect device_type from User-Agent:
+    mobile: /mobile/i
+    tablet: /tablet|ipad/i
+    desktop: default
+- On each request:
+    INSERT into page_views (non-blocking, async)
+    Don't await — fire and forget
+
+Specific tracking:
+
+On GET /api/offres/:id:
+  INSERT into offer_views
+  INCREMENT residus.view_count
+
+On POST /api/auth/register:
+  INSERT conversion_events: 'register'
+
+On POST /api/offres (first offer):
+  Check if user has previous offers
+  If none: INSERT conversion_events: 'first_offer'
+
+On POST /api/conversations (first contact):
+  Check if user has previous conversations
+  If none: INSERT conversion_events: 'first_contact'
+
+On PUT /api/transactions/:id (status→confirmée):
+  INSERT conversion_events: 'first_transaction'
+  (if first for this user)
+
+On POST /api/subscriptions/subscribe:
+  INSERT conversion_events: 'subscription'
+
+New admin analytics routes:
+
+GET /api/admin/analytics/overview:
+Returns:
+{
+  today: {
+    visitors: X,        -- unique session_ids today
+    page_views: X,
+    new_users: X,
+    offers_viewed: X
+  },
+  week: { same structure },
+  month: { same structure },
+  
+  vs_last_period: {
+    visitors_change: +12%,
+    users_change: +5%
+  },
+  
+  top_pages: [
+    { path: '/marketplace', views: 245, unique: 180 },
+    { path: '/', views: 312, unique: 290 },
+    ...
+  ],
+  
+  top_offers: [
+    { type_residu: 'Cabosses cacao', views: 89, 
+      offers_count: 12 },
+    ...
+  ],
+  
+  devices: {
+    mobile: 68%,
+    desktop: 28%,
+    tablet: 4%
+  },
+  
+  by_hour: [
+    { hour: 8, visitors: 12 },
+    { hour: 9, visitors: 28 },
+    ... (24 data points)
+  ],
+  
+  conversion_funnel: {
+    visitors: X,
+    registered: X,        -- reg/visitors %
+    first_offer: X,       -- offer/registered %
+    first_contact: X,     -- contact/registered %
+    first_transaction: X  -- transaction/contact %
+  },
+  
+  by_region: [
+    { region: 'Abidjan', users: 45, offers: 23 },
+    { region: 'San Pedro', users: 28, offers: 67 },
+    ...
+  ]
+}
+
+GET /api/admin/analytics/traffic:
+- Query params: period (7|30|90 days), granularity (day|week)
+- Returns time series:
+  [{ date, visitors, page_views, new_users }]
+
+GET /api/admin/analytics/offers:
+- Top viewed offers with conversion rate
+- Most shared offer types
+- Average time on offer page
+
+GET /api/admin/analytics/conversions:
+- Full funnel data
+- Drop-off rates between steps
+- Average time between steps
+
+GET /api/admin/analytics/realtime:
+- Active visitors RIGHT NOW (session in last 5 min)
+- Pages they are on
+- Refreshed every 30 seconds
+
+## FRONTEND — /admin/analytics
+
+Add to admin sidebar under ── ADMINISTRATION ──:
+  📈 Analytics → /admin/analytics
+
+Page /admin/analytics:
+
+── TOP BAR — Date range picker ──
+Presets: Aujourd'hui | 7 jours | 30 jours | 
+         90 jours | Personnalisé
+(updates all widgets on change)
+
+── REAL-TIME WIDGET (top of page) ──
+Green pulsing dot: "🟢 X visiteurs actifs maintenant"
+Mini list: top 3 pages being viewed right now
+Auto-refresh every 30 seconds
+
+── KPI CARDS ROW ──
+4 cards with trend vs previous period:
+
+┌─────────────────┐ ┌─────────────────┐
+│ 👁 Visiteurs    │ │ 📄 Pages vues   │
+│ 1 234           │ │ 4 567           │
+│ ↑ +12% vs mois │ │ ↑ +8%          │
+│ précédent       │ │                 │
+└─────────────────┘ └─────────────────┘
+
+┌─────────────────┐ ┌─────────────────┐
+│ 👤 Nouveaux     │ │ 📦 Offres vues  │
+│ inscrits        │ │ 892             │
+│ 89              │ │ ↑ +15%         │
+│ ↑ +23%         │ │                 │
+└─────────────────┘ └─────────────────┘
+
+── TRAFFIC CHART ──
+Title: "Trafic sur la période"
+recharts AreaChart:
+- X axis: dates
+- Y axis: count
+- Two lines: 
+    🟢 Visiteurs uniques (solid)
+    🔵 Pages vues (dashed)
+- Area fill below each line (opacity 0.1)
+- Tooltip: date + both values
+
+── THREE COLUMN ROW ──
+
+Column 1 — Appareils:
+recharts PieChart / DonutChart:
+  📱 Mobile: 68% (green)
+  🖥️ Desktop: 28% (blue)  
+  📱 Tablette: 4% (gray)
+Legend below with percentages
+
+Column 2 — Pages populaires:
+Table (no pagination, top 8):
+| Page | Vues | Visiteurs uniques |
+| /marketplace | 245 | 180 |
+| / | 312 | 290 |
+| /carte | 89 | 76 |
+...
+Each row: path + bar showing relative traffic
+
+Column 3 — Régions:
+Table: top regions in CI
+| Région | Utilisateurs | Offres |
+| Abidjan | 45 | 23 |
+| San Pedro | 28 | 67 |
+...
+Flag emoji per region if available
+
+── CONVERSION FUNNEL ──
+Title: "Entonnoir de conversion"
+Horizontal funnel chart (recharts FunnelChart):
+
+Visiteurs → Inscrits → 1ère offre/contact → Transaction → Abonnement
+
+Each step shows:
+- Count and % of previous step
+- Drop-off: "X% abandonnent ici"
+Color: green → yellow → orange (showing drop-off)
+
+Example:
+Visiteurs    1 234  ████████████████████ 100%
+Inscrits       234  ████████             19%  (drop: 81%)
+1er contact    156  ██████               67%  (drop: 33%)
+Transaction     89  ████                 57%  (drop: 43%)
+Abonnement      12  █                    13%  (drop: 87%)
+
+── HEURES DE POINTE ──
+Title: "Activité par heure (moyenne)"
+recharts BarChart:
+- X axis: 00h → 23h
+- Y axis: average visitors
+- Highlight peak hours in brighter green
+- Tooltip: "Xh : Y visiteurs en moyenne"
+
+── TOP OFFRES VUES ──
+Title: "Offres les plus consultées"
+Table:
+| Photo | Type résidu | Vues | Partages | Vendeur | Région |
+| [img] | Cabosses cacao | 89 | 12 | Kouamé | Abengourou |
+Clickable rows → opens offer detail
+
+── EXPORT ──
+Bottom of page:
+"📥 Exporter le rapport" button
+→ Generates PDF or CSV with all current data
+→ Filename: analytics_agroloopci_[date].csv
+
+## GA4 LINK IN ADMIN
+
+Add a card on analytics page:
+
+"📊 Google Analytics 4"
+"Accédez à votre tableau de bord GA4 pour des 
+ analyses avancées : sources de trafic, 
+ comportement utilisateur, entonnoirs détaillés."
+"Ouvrir Google Analytics →" button
+(opens analytics.google.com in new tab)
+
+## PRIVACY
+
+Add cookie consent banner (GDPR-lite):
+Shows on first visit:
+"🍪 Nous utilisons des cookies pour améliorer 
+ votre expérience et analyser notre trafic."
+"Accepter" (green) | "Refuser" (gray)
+
+If refused: disable GA4 tracking
+(set gtag consent denied)
+Always keep custom analytics (anonymized)
+
+Store consent in localStorage: 'analytics_consent'
+
+## UI DETAILS
+- Real-time widget: pulsing green dot animation
+- KPI trend up: green ↑ with percentage
+- KPI trend down: red ↓ with percentage
+- Charts: recharts (already in project)
+- Color scheme: green primary, blue secondary
+- Mobile: charts scroll horizontally, 
+  KPI cards 2×2 grid
+- Skeleton loaders while fetching
+- Auto-refresh real-time widget: every 30s
+- French labels: "Visiteurs", "Pages vues",
+  "Appareils", "Entonnoir", "Heures de pointe",
+  "Visiteurs actifs", "Rapport", "Exporter"

@@ -1,0 +1,217 @@
+Add complete SEO optimization for AgroLoopCI with domain agroloopci.ci.
+
+## 1. Update index.html with full SEO meta tags
+
+Replace the content of client/index.html <head> with:
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary SEO -->
+  <title>AgroLoopCI — Zéro gaspillage, Impact maximum</title>
+  <meta name="description" content="AgroLoopCI est la première plateforme numérique de valorisation des résidus agro-industriels en Côte d'Ivoire. Connectez producteurs et transformateurs de cacao, anacarde, plantain." />
+  <meta name="keywords" content="économie circulaire, résidus agricoles, cacao, anacarde, valorisation, Côte d'Ivoire, UEMOA, agro-industrie, marketplace agricole" />
+  <meta name="author" content="AgroLoopCI" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://agroloopci.ci" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://agroloopci.ci" />
+  <meta property="og:title" content="AgroLoopCI — Zéro gaspillage, Impact maximum" />
+  <meta property="og:description" content="La première plateforme numérique de valorisation des résidus agro-industriels en Côte d'Ivoire. Connectez producteurs et transformateurs." />
+  <meta property="og:image" content="https://agroloopci.ci/og-image.png" />
+  <meta property="og:locale" content="fr_CI" />
+  <meta property="og:site_name" content="AgroLoopCI" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://agroloopci.ci" />
+  <meta name="twitter:title" content="AgroLoopCI — Zéro gaspillage, Impact maximum" />
+  <meta name="twitter:description" content="La première plateforme numérique de valorisation des résidus agro-industriels en Côte d'Ivoire." />
+  <meta name="twitter:image" content="https://agroloopci.ci/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#2E7D32" />
+</head>
+```
+
+## 2. Create public/favicon.svg
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#2E7D32"/>
+  <text y=".9em" font-size="80" x="10">🌱</text>
+</svg>
+```
+
+## 3. Create public/robots.txt
+
+```
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /api/
+
+Sitemap: https://agroloopci.ci/sitemap.xml
+```
+
+## 4. Create public/sitemap.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://agroloopci.ci/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://agroloopci.ci/marketplace</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://agroloopci.ci/impact</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agroloopci.ci/register</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
+```
+
+## 5. Create src/hooks/useSEO.js
+
+```js
+import { useEffect } from 'react'
+
+export const useSEO = ({ title, description, url }) => {
+  useEffect(() => {
+    // Title
+    document.title = title 
+      ? `${title} | AgroLoopCI` 
+      : 'AgroLoopCI — Zéro gaspillage, Impact maximum'
+    
+    // Description
+    const desc = document.querySelector('meta[name="description"]')
+    if (desc && description) desc.setAttribute('content', description)
+
+    // OG tags
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    const ogUrl = document.querySelector('meta[property="og:url"]')
+    if (ogTitle && title) ogTitle.setAttribute('content', `${title} | AgroLoopCI`)
+    if (ogDesc && description) ogDesc.setAttribute('content', description)
+    if (ogUrl && url) ogUrl.setAttribute('content', `https://agroloopci.ci${url}`)
+  }, [title, description, url])
+}
+```
+
+## 6. Add useSEO to each page
+
+In each page component, add at the top:
+
+```jsx
+// Landing.jsx
+useSEO({
+  title: 'Accueil',
+  description: 'AgroLoopCI connecte producteurs et transformateurs de résidus agro-industriels en Côte d\'Ivoire.',
+  url: '/'
+})
+
+// Marketplace.jsx
+useSEO({
+  title: 'Marketplace — Offres de résidus agricoles',
+  description: 'Trouvez des résidus agricoles disponibles en Côte d\'Ivoire : cabosses de cacao, coques d\'anacarde, tiges de plantain.',
+  url: '/marketplace'
+})
+
+// Impact.jsx
+useSEO({
+  title: 'Notre Impact',
+  description: 'Découvrez l\'impact environnemental et économique d\'AgroLoopCI sur la valorisation des résidus agricoles en Côte d\'Ivoire.',
+  url: '/impact'
+})
+
+// Register.jsx
+useSEO({
+  title: 'Inscription',
+  description: 'Rejoignez AgroLoopCI et commencez à valoriser vos résidus agricoles ou à trouver des matières premières secondaires.',
+  url: '/register'
+})
+```
+
+## 7. Add JSON-LD Structured Data in index.html
+
+Add before </body>:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AgroLoopCI",
+  "url": "https://agroloopci.ci",
+  "description": "Plateforme numérique de valorisation des résidus agro-industriels en Côte d'Ivoire",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "XOF"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "AgroLoopCI",
+    "url": "https://agroloopci.ci"
+  },
+  "keywords": "économie circulaire, résidus agricoles, cacao, anacarde, Côte d'Ivoire"
+}
+</script>
+```
+
+## 8. Update vercel.json for SEO headers
+
+```json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml" }
+      ]
+    }
+  ]
+}
+```
+
+After all changes, run:
+```bash
+git add .
+git commit -m "feat: add complete SEO optimization for agroloopci.ci"
+git push origin main
+```

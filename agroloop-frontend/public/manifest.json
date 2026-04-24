@@ -1,0 +1,58 @@
+{
+  "name": "AgroLoopCI",
+  "short_name": "AgroLoop",
+  "description": "Valorisation des résidus agro-industriels en Côte d'Ivoire — Marketplace B2B d'économie circulaire agricole",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F1F8F1",
+  "theme_color": "#16a34a",
+  "lang": "fr",
+  "categories": ["business", "productivity"],
+  "screenshots": [
+    {
+      "src": "/opengraph.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "AgroLoopCI Marketplace"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/brand/agroloop-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/agroloop-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/agroloop-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Marketplace",
+      "short_name": "Marché",
+      "description": "Parcourir les offres de résidus agricoles",
+      "url": "/marketplace",
+      "icons": [{ "src": "/brand/agroloop-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Publier une offre",
+      "short_name": "Publier",
+      "description": "Mettre en vente vos résidus agricoles",
+      "url": "/offres/nouvelle",
+      "icons": [{ "src": "/brand/agroloop-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}

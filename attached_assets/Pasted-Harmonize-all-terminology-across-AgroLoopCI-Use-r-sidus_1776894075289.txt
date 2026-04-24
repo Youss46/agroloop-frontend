@@ -1,0 +1,138 @@
+Harmonize all terminology across AgroLoopCI.
+Use "résidus agricoles" everywhere without exception.
+
+## GLOBAL RULE
+ONE term only across the entire application:
+"résidus agricoles" (never "agro-industriels")
+
+## SPECIFIC TEXT CHANGES
+
+── LANDING PAGE ──
+
+Hero subtitle:
+OLD: "La première marketplace B2B reliant les 
+     producteurs de cacao, d'anacarde et de 
+     plantain aux industries de transformation 
+     en Côte d'Ivoire."
+NEW: "La première marketplace B2B dédiée à la 
+     valorisation des résidus agricoles 
+     en Côte d'Ivoire."
+
+Hero badge:
+OLD: "L'économie circulaire agricole de Côte d'Ivoire"
+NEW: "🌿 Zéro gaspillage · Impact maximum"
+
+How it works section:
+Step 1: "Publiez vos résidus agricoles"
+Step 2: "Connectez-vous avec des acheteurs"
+Step 3: "Valorisez et générez des revenus"
+
+Stats section:
+"X tonnes de résidus agricoles valorisés"
+"X kg de CO₂ évités"
+"X producteurs connectés"
+
+── NAVBAR & FOOTER ──
+
+Footer tagline:
+OLD: "Connecter les producteurs agricoles 
+     et les transformateurs en Côte d'Ivoire"
+NEW: "Valoriser les résidus agricoles, 
+     ensemble. 🌿"
+
+── MARKETPLACE ──
+
+Page title: "Marketplace — Résidus agricoles"
+Empty state: "Aucun résidu agricole disponible"
+Search placeholder: "Rechercher un résidu agricole..."
+Filter label: "Type de résidu agricole"
+
+── OFFER CREATION FORM ──
+
+Field label:
+OLD: "Type de résidu"
+NEW: "Type de résidu agricole"
+
+Description placeholder:
+NEW: "Décrivez votre résidu agricole : 
+     état, conditionnement, conditions 
+     de stockage..."
+
+── PRODUCTEUR DASHBOARD ──
+
+"Mes résidus agricoles publiés"
+"Kg de résidus agricoles valorisés"
+"Revenus générés"
+
+Onboarding:
+"Publiez vos premiers résidus agricoles 
+ et commencez à les valoriser."
+
+── TRANSFORMATEUR DASHBOARD ──
+
+"Résidus agricoles recherchés"
+"Mes achats de résidus agricoles"
+
+── CALCULATOR PAGE ──
+
+Title: "Calculateur de valorisation"
+Subtitle: "Estimez la valeur de vos résidus 
+           agricoles et votre impact environnemental"
+
+── MARKET PAGE /marche ──
+
+Title: "Marché & Prix"
+Subtitle: "Évolution des prix moyens des résidus 
+           agricoles en Côte d'Ivoire"
+
+── VERIFICATION PAGE ──
+
+"Vérifiez votre compte pour inspirer confiance
+ aux acheteurs de résidus agricoles"
+
+── NOTIFICATIONS ──
+
+"Nouvelle offre de résidus agricoles"
+"Votre résidu agricole a été commandé"
+
+── ADMIN PANEL ──
+
+"Résidus agricoles valorisés"
+"Volume de résidus agricoles échangés"
+"Transactions de résidus agricoles"
+
+── SEO & META ──
+
+index.html meta description:
+"AgroLoopCI — Marketplace B2B de valorisation 
+des résidus agricoles en Côte d'Ivoire. 
+Connectez producteurs et transformateurs 
+pour une économie circulaire durable."
+
+PWA manifest description:
+"Marketplace de valorisation des résidus 
+agricoles — Côte d'Ivoire 🌿"
+
+── NOTIFICATIONS SYSTÈME ──
+
+Welcome:
+"Bienvenue sur AgroLoopCI ! Publiez vos 
+résidus agricoles et commencez à les valoriser."
+
+Matching alert:
+"Une nouvelle offre de [type_residu] correspond 
+à vos critères d'achat"
+
+── SUPPORT & FAQ ──
+
+"Comment publier mes résidus agricoles ?"
+"Comment trouver des résidus agricoles ?"
+
+## DO NOT CHANGE
+- "AgroLoopCI" — jamais
+- "économie circulaire" — garder partout
+- Noms des types dans les dropdowns
+  (Cabosses de cacao, Coques d'anacarde, etc.)
+- Contenu soumis par les utilisateurs
+- Noms de colonnes et tables en base de données
+- Noms de variables dans le code

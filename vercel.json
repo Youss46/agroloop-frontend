@@ -1,0 +1,16 @@
+{
+  "installCommand": "pnpm install --no-frozen-lockfile --prod=false",
+  "buildCommand": "pnpm -w run vercel-build",
+  "outputDirectory": "dist",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://api.agroloopci.ci/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
