@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Download, X } from "lucide-react";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -8,97 +6,214 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export function PwaInstallBanner() {
-  const [prompt, setPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
   const [dismissed, setDismissed] = useState(false);
-  const [isIos, setIsIos] = useState(false);
-  const [isStandalone, setIsStandalone] = useState(false);
 
   useEffect(() => {
-    const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    const standalone =
-      window.matchMedia("(display-mode: standalone)").matches ||
-      ("standalone" in window.navigator && (window.navigator as { standalone?: boolean }).standalone === true);
+    if (window.matchMedia("(display-mode: standalone)").matches) {
+      setIsInstalled(true);
+      return;
+    }
 
-    setIsIos(ios);
-    setIsStandalone(standalone);
-
-    const stored = sessionStorage.getItem("pwa-banner-dismissed");
-    if (stored) setDismissed(true);
+    const wasDismissed = localStorage.getItem("pwa-banner-dismissed");
+    if (wasDismissed) return;
 
     const handler = (e: Event) => {
       e.preventDefault();
-      setPrompt(e as BeforeInstallPromptEvent);
+      setInstallPrompt(e as BeforeInstallPromptEvent);
+      setTimeout(() => setIsVisible(true), 3000);
     };
+
     window.addEventListener("beforeinstallprompt", handler);
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
   const handleInstall = async () => {
-    if (!prompt) return;
-    await prompt.prompt();
-    const { outcome } = await prompt.userChoice;
-    if (outcome === "accepted") setPrompt(null);
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    if (outcome === "accepted") {
+      setIsVisible(false);
+      setIsInstalled(true);
+    }
   };
 
   const handleDismiss = () => {
+    setIsVisible(false);
     setDismissed(true);
-    sessionStorage.setItem("pwa-banner-dismissed", "1");
+    localStorage.setItem("pwa-banner-dismissed", "true");
   };
 
-  if (isStandalone || dismissed) return null;
+  if (!isVisible || isInstalled || dismissed) return null;
 
-  // Android/Chrome — show native install prompt
-  if (prompt) {
-    return (
-      <div className="fixed bottom-0 left-0 right-0 z-50 safe-bottom">
-        <div className="m-3 rounded-2xl border bg-card shadow-lg p-4 flex items-center gap-3">
-          <img src="/brand/agroloop-icon.png" alt="AgroLoopCI" className="h-10 w-10 rounded-xl shrink-0" loading="eager" />
-          <div className="flex-1 min-w-0">
-            <p className="font-semibold text-sm">Installer AgroLoop</p>
-            <p className="text-xs text-muted-foreground truncate">Accès rapide depuis votre écran d'accueil</p>
-          </div>
-          <div className="flex items-center gap-2 shrink-0">
-            <Button size="sm" onClick={handleInstall} className="gap-1.5 h-8 text-xs">
-              <Download className="h-3.5 w-3.5" />
-              Installer
-            </Button>
-            <button
-              onClick={handleDismiss}
-              className="h-8 w-8 flex items-center justify-center rounded-lg text-muted-foreground hover:bg-muted"
-              aria-label="Fermer"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  return (
+    <>
+      <div
+        onClick={handleDismiss}
+        style={{
+          position: "fixed",
+          inset: 0,
+          background: "rgba(0,0,0,0.4)",
+          backdropFilter: "blur(4px)",
+          zIndex: 9998,
+          animation: "fadeIn 0.3s ease",
+        }}
+      />
 
-  // iOS — show manual instructions (Safari doesn't support beforeinstallprompt)
-  if (isIos) {
-    return (
-      <div className="fixed bottom-0 left-0 right-0 z-50 safe-bottom">
-        <div className="m-3 rounded-2xl border bg-card shadow-lg p-4 flex items-start gap-3">
-          <img src="/brand/agroloop-icon.png" alt="AgroLoopCI" className="h-10 w-10 rounded-xl shrink-0 mt-0.5" loading="eager" />
-          <div className="flex-1 min-w-0">
-            <p className="font-semibold text-sm">Installer AgroLoop sur iPhone</p>
-            <p className="text-xs text-muted-foreground mt-1">
-              Appuyez sur <span className="inline-block">⎋</span> <strong>Partager</strong>, puis{" "}
-              <strong>Sur l'écran d'accueil</strong>
+      <div
+        style={{
+          position: "fixed",
+          bottom: "24px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "min(90vw, 420px)",
+          background: "white",
+          borderRadius: "24px",
+          padding: "28px 24px",
+          zIndex: 9999,
+          boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+          animation: "slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          fontFamily: "inherit",
+        }}
+      >
+        <button
+          onClick={handleDismiss}
+          style={{
+            position: "absolute",
+            top: "16px",
+            right: "16px",
+            background: "#f5f5f5",
+            border: "none",
+            borderRadius: "50%",
+            width: "32px",
+            height: "32px",
+            cursor: "pointer",
+            fontSize: "16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#666",
+          }}
+          aria-label="Fermer"
+        >
+          ✕
+        </button>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" }}>
+          <div
+            style={{
+              width: "64px",
+              height: "64px",
+              background: "linear-gradient(135deg, #2E7D32, #4CAF50)",
+              borderRadius: "16px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "32px",
+              flexShrink: 0,
+              boxShadow: "0 4px 12px rgba(46,125,50,0.3)",
+            }}
+          >
+            🌱
+          </div>
+          <div>
+            <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 700, color: "#1a1a1a" }}>
+              AgroLoopCI
+            </h3>
+            <p style={{ margin: "2px 0 0", fontSize: "13px", color: "#666" }}>
+              Installer l'application
             </p>
           </div>
+        </div>
+
+        <p
+          style={{
+            fontSize: "14px",
+            color: "#444",
+            lineHeight: "1.6",
+            margin: "0 0 20px",
+            padding: "12px 16px",
+            background: "#f8fdf8",
+            borderRadius: "12px",
+            borderLeft: "3px solid #2E7D32",
+          }}
+        >
+          📲 Installez AgroLoopCI sur votre écran d'accueil pour un accès rapide, même sans connexion.
+        </p>
+
+        <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
+          {["⚡ Rapide", "📴 Hors-ligne", "🔔 Notifications", "🆓 Gratuit"].map((f) => (
+            <span
+              key={f}
+              style={{
+                background: "#E8F5E9",
+                color: "#2E7D32",
+                padding: "4px 12px",
+                borderRadius: "20px",
+                fontSize: "12px",
+                fontWeight: 600,
+              }}
+            >
+              {f}
+            </span>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", gap: "12px" }}>
           <button
             onClick={handleDismiss}
-            className="h-8 w-8 flex items-center justify-center rounded-lg text-muted-foreground hover:bg-muted shrink-0"
-            aria-label="Fermer"
+            style={{
+              flex: 1,
+              padding: "14px",
+              background: "#f5f5f5",
+              border: "none",
+              borderRadius: "14px",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "#666",
+              cursor: "pointer",
+            }}
           >
-            <X className="h-4 w-4" />
+            Plus tard
+          </button>
+          <button
+            onClick={handleInstall}
+            style={{
+              flex: 2,
+              padding: "14px",
+              background: "linear-gradient(135deg, #2E7D32, #4CAF50)",
+              border: "none",
+              borderRadius: "14px",
+              fontSize: "14px",
+              fontWeight: 700,
+              color: "white",
+              cursor: "pointer",
+              boxShadow: "0 4px 16px rgba(46,125,50,0.4)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+            }}
+          >
+            📲 Installer maintenant
           </button>
         </div>
       </div>
-    );
-  }
 
-  return null;
+      <style>{`
+        @keyframes slideUp {
+          from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+          to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
+    </>
+  );
 }
+
+export default PwaInstallBanner;
