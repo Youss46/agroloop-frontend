@@ -4,4 +4,4 @@ Disallow: /dashboard
 Disallow: /profile
 Disallow: /api/
 
-Sitemap: https://www.agroloopci.ci/sitemap.xml
+Sitemap: https://agroloopci.ci/sitemap.xml
