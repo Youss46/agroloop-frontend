@@ -6,7 +6,7 @@ declare global {
 }
 
 const CONSENT_KEY = "analytics_consent";
-const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
+const GA_ID: string = (import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined) ?? "G-21HJXXE1FM";
 
 export function getConsent(): "granted" | "denied" | null {
   const stored = localStorage.getItem(CONSENT_KEY);

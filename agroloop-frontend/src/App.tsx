@@ -96,6 +96,13 @@ function RouteTracker() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     trackPageView(location);
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        page_path: location,
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+    }
   }, [location]);
   return null;
 }
