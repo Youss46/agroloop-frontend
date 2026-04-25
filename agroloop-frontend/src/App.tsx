@@ -94,6 +94,7 @@ function PageLoader() {
 function RouteTracker() {
   const [location] = useLocation();
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
     trackPageView(location);
   }, [location]);
   return null;
