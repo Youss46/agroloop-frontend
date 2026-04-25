@@ -26,6 +26,8 @@ import Messages from "@/pages/messages";
 import Profile from "@/pages/profile";
 import ProfilModifier from "@/pages/profil-modifier";
 import NotFound from "@/pages/not-found";
+import About from "@/pages/about";
+import PolitiqueConfidentialite from "@/pages/politique-confidentialite";
 import AdminOverview from "@/pages/admin";
 import AdminUsers from "@/pages/admin/utilisateurs";
 import AdminOffres from "@/pages/admin/offres";
@@ -324,6 +326,8 @@ function Router() {
           </ProtectedRoute>
         </Route>
 
+        <Route path="/about" component={About} />
+        <Route path="/politique-confidentialite" component={PolitiqueConfidentialite} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

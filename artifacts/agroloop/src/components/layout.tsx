@@ -460,28 +460,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="flex-1 flex flex-col">{children}</main>
 
-      <footer className="border-t py-8 bg-muted/30">
-        <div className="container flex flex-col items-center justify-between gap-4 md:flex-row text-center md:text-left">
-          <div className="flex items-center">
-            <img
-              src="/brand/agroloop-logo-light.png"
-              alt="AgroLoopCI"
-              className="h-7 w-auto"
-            />
+      <footer className="border-t py-10 bg-muted/30">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center">
+              <img
+                src="/brand/agroloop-logo-light.png"
+                alt="AgroLoopCI"
+                className="h-7 w-auto"
+              />
+            </div>
+            <p className="text-sm text-muted-foreground text-center">
+              Valoriser les résidus agricoles, ensemble. 🌿
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              <Link href="/" className="hover:text-primary transition-colors">
+                Accueil
+              </Link>
+              <Link href="/marketplace" className="hover:text-primary transition-colors">
+                Marketplace
+              </Link>
+              <Link href="/carte" className="hover:text-primary transition-colors">
+                Carte
+              </Link>
+              <Link href="/about" className="hover:text-primary transition-colors">
+                À propos
+              </Link>
+              <Link href="/politique-confidentialite" className="hover:text-primary transition-colors">
+                Confidentialité
+              </Link>
+            </div>
           </div>
-          <p className="text-sm text-muted-foreground">
-            Valoriser les résidus agricoles, ensemble. 🌿
-          </p>
-          <div className="flex gap-4 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-primary transition-colors">
-              Accueil
-            </Link>
-            <Link href="/marketplace" className="hover:text-primary transition-colors">
-              Marketplace
-            </Link>
-            <Link href="/carte" className="hover:text-primary transition-colors">
-              Carte
-            </Link>
+          <div className="mt-6 pt-6 border-t text-center text-xs text-muted-foreground">
+            © {new Date().getFullYear()} AgroLoopCI — Tous droits réservés
           </div>
         </div>
       </footer>

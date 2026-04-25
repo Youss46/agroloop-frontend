@@ -68,6 +68,8 @@ const CommandeConfirmationPage = lazy(() => import("@/pages/commande-confirmatio
 const CommandesRecuesPage = lazy(() => import("@/pages/commandes-recues"));
 const HistoriquePage = lazy(() => import("@/pages/historique"));
 const DevPortalPage = lazy(() => import("@/pages/dev-portal"));
+const About = lazy(() => import("@/pages/about"));
+const PolitiqueConfidentialite = lazy(() => import("@/pages/politique-confidentialite"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -337,6 +339,8 @@ function Router() {
             </ProtectedRoute>
           </Route>
 
+          <Route path="/about"><About /></Route>
+          <Route path="/politique-confidentialite"><PolitiqueConfidentialite /></Route>
           <Route component={NotFound} />
         </Switch>
       </Suspense>
