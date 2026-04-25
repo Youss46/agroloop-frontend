@@ -1,12 +1,13 @@
 import { useGetStats } from "@/api-client";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Leaf, Recycle, Users, ArrowRight, ChevronDown, Star, MapPin, Package, TrendingUp } from "lucide-react";
+import { Leaf, Recycle, Users, ArrowRight, ChevronDown, Star, MapPin, Package, TrendingUp, LayoutDashboard, ShoppingCart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import heroImage from "@assets/Screenshot_20260421-011356_1776734073256.png";
 import { useSEO } from "@/hooks/useSEO";
 import { useEffect, useRef, useState } from "react";
+import { useAuth } from "@/components/auth-provider";
 
 const faqs = [
   {
@@ -145,6 +146,8 @@ export default function Home() {
     url: "/",
   });
   const { data: stats, isLoading } = useGetStats();
+  const { user } = useAuth();
+  const dashboardLink = user?.role === "producteur" ? "/dashboard/producteur" : "/dashboard/transformateur";
 
   const formatNumber = (num?: number) => {
     if (num === undefined) return "0";
@@ -171,18 +174,37 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-8">
-              <Link href="/register">
-                <Button size="lg" className="w-full sm:w-auto gap-2 text-base h-12" data-testid="button-home-register-producteur">
-                  <Leaf className="h-5 w-5" />
-                  Je suis Producteur
-                </Button>
-              </Link>
-              <Link href="/register">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 text-base h-12 border-primary text-primary hover:bg-primary/5" data-testid="button-home-register-transformateur">
-                  <Recycle className="h-5 w-5" />
-                  Je suis Transformateur
-                </Button>
-              </Link>
+              {user ? (
+                <>
+                  <Link href="/marketplace">
+                    <Button size="lg" className="w-full sm:w-auto gap-2 text-base h-12" data-testid="button-home-marketplace">
+                      <ShoppingCart className="h-5 w-5" />
+                      Accéder au Marketplace
+                    </Button>
+                  </Link>
+                  <Link href={dashboardLink}>
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 text-base h-12 border-primary text-primary hover:bg-primary/5" data-testid="button-home-dashboard">
+                      <LayoutDashboard className="h-5 w-5" />
+                      Mon tableau de bord
+                    </Button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link href="/register">
+                    <Button size="lg" className="w-full sm:w-auto gap-2 text-base h-12" data-testid="button-home-register-producteur">
+                      <Leaf className="h-5 w-5" />
+                      Je suis Producteur
+                    </Button>
+                  </Link>
+                  <Link href="/register">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 text-base h-12 border-primary text-primary hover:bg-primary/5" data-testid="button-home-register-transformateur">
+                      <Recycle className="h-5 w-5" />
+                      Je suis Transformateur
+                    </Button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
