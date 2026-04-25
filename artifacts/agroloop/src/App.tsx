@@ -7,6 +7,7 @@ import { AuthProvider } from "@/components/auth-provider";
 import { Layout } from "@/components/layout";
 import { ProtectedRoute } from "@/components/protected-route";
 import { CookieConsent } from "@/components/cookie-consent";
+import { PwaInstallBanner } from "@/components/pwa-install-banner";
 import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 import Home from "@/pages/home";
@@ -346,6 +347,7 @@ function App() {
             <NotificationToaster />
             <Toaster />
             <CookieConsent />
+            <PwaInstallBanner />
           </AuthProvider>
         </WouterRouter>
       </TooltipProvider>

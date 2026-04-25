@@ -1,28 +1,28 @@
 {
   "name": "AgroLoopCI",
-  "short_name": "AgroLoopCI",
-  "description": "Marketplace de valorisation des résidus agricoles — Côte d'Ivoire 🌿",
+  "short_name": "AgroLoop",
+  "description": "Marketplace de valorisation des résidus agricoles — Côte d'Ivoire",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#16a34a",
+  "background_color": "#F1F8F1",
+  "theme_color": "#2E7D32",
   "lang": "fr",
   "icons": [
     {
-      "src": "/brand/agroloop-icon.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/brand/agroloop-icon.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/brand/agroloop-icon.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
