@@ -26,6 +26,11 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://www.agroloopci.ci/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.agroloopci.ci/register</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -34,5 +39,10 @@
     <loc>https://www.agroloopci.ci/login</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.agroloopci.ci/politique-confidentialite</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
