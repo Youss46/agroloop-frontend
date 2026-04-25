@@ -16,7 +16,7 @@ const team = [
     initials: "WS",
     name: "Welore Sidibé",
     role: "Co-fondateur & COO",
-    description: "Ancré sur le terrain, il gère la relation directe avec les producteurs agricoles et supervise la logistique des échanges. Son expérience de proximité garantit que la plateforme répond aux réalités du secteur.",
+    description: "Ancrée sur le terrain, elle gère la relation directe avec les producteurs agricoles et supervise la logistique des échanges. Son expérience de proximité garantit que la plateforme répond aux réalités du secteur.",
     bg: "bg-emerald-100",
     color: "text-emerald-700",
   },
