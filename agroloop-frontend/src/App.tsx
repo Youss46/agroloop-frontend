@@ -1,6 +1,7 @@
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, lazy, Suspense } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/components/auth-provider";
@@ -374,6 +375,7 @@ function App() {
             <Toaster />
             <CookieConsent />
             <PwaInstallBanner />
+            <Analytics />
           </AuthProvider>
         </WouterRouter>
       </TooltipProvider>
